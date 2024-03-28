@@ -7,6 +7,8 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class SignUpViewController: UIViewController {
 
@@ -14,19 +16,36 @@ class SignUpViewController: UIViewController {
     let validationButton = UIButton()
     let nextButton = PointButton(title: "다음")
     
+    let descroptionLabel = UILabel()
+    
+    let viewModel = SignUpViewModel()
+    let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.backgroundColor = Color.white
         
         configureLayout()
         configure()
-        
-        nextButton.addTarget(self, action: #selector(nextButtonClicked), for: .touchUpInside)
+        subscribe()
 
     }
+    private func subscribe(){
+        let input = SignUpViewModel.Input(emailTextField: emailTextField.rx.text)
+        
+        viewModel.proceccing(input).valitation.bind(with: self) { owner, result in
+            owner.nextButton.isEnabled = result.isValid
+            owner.descroptionLabel.text = result.message
+            owner.nextButton.backgroundColor = result.isValid ? .systemRed : .systemGray
+        }.disposed(by: disposeBag)
+        
+        nextButton.rx.tap.bind(with: self) { owner, _ in
+            owner.nextButtonClicked()
+        }.disposed(by: disposeBag)
+    }
     
-    @objc func nextButtonClicked() {
+    func nextButtonClicked() {
         navigationController?.pushViewController(PasswordViewController(), animated: true)
     }
 
@@ -41,6 +60,7 @@ class SignUpViewController: UIViewController {
     func configureLayout() {
         view.addSubview(emailTextField)
         view.addSubview(validationButton)
+        view.addSubview(descroptionLabel)
         view.addSubview(nextButton)
         
         validationButton.snp.makeConstraints { make in
@@ -48,6 +68,11 @@ class SignUpViewController: UIViewController {
             make.top.equalTo(view.safeAreaLayoutGuide).offset(200)
             make.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.width.equalTo(100)
+        }
+        descroptionLabel.snp.makeConstraints { make in
+            make.height.equalTo(20)
+            make.bottom.equalTo(emailTextField.snp.top).inset( -4 )
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
         
         emailTextField.snp.makeConstraints { make in

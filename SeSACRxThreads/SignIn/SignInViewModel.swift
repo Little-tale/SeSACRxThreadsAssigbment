@@ -7,8 +7,17 @@
 
 import Foundation
 
-class SignInViewModel {
+class SignInViewModel: ViewModelType {
     
+    struct Input {
+        
+    }
+    struct Output {
+        
+    }
     
+    func proceccing(_ input: Input) -> Output {
+        return Output()
+    }
     
 }

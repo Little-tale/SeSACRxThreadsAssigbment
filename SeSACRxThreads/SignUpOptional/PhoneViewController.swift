@@ -22,25 +22,11 @@ class PhoneViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         view.backgroundColor = Color.white
-        
         configureLayout()
-        
-        nextButton.addTarget(self, action: #selector(nextButtonClicked), for: .touchUpInside)
-        
         subscribe()
-        
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
-    }
-    
-    @objc func nextButtonClicked() {
-        navigationController?.pushViewController(NicknameViewController(), animated: true)
-    }
-    
+
     func subscribe(){
         let input = PhoneViewModel.Input(
             phoneTextField: phoneTextField.rx.text,
@@ -62,7 +48,9 @@ class PhoneViewController: UIViewController {
         }.disposed(by: disposeBag)
         
         
-        
+        nextButton.rx.tap.bind(with: self) { owner, _ in
+            owner.navigationController?.pushViewController(NicknameViewController(), animated: true)
+        }.disposed(by: disposeBag)
     }
 
     

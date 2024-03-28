@@ -33,6 +33,7 @@
 		7BF2E7E12BB5839100E83EC1 /* OfAsyncSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7E02BB5839100E83EC1 /* OfAsyncSubject.swift */; };
 		7BF2E7E32BB585AE00E83EC1 /* PasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7E22BB585AE00E83EC1 /* PasswordViewModel.swift */; };
 		7BF2E7E52BB5921500E83EC1 /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7E42BB5921500E83EC1 /* PhoneViewModel.swift */; };
+		7BF2E7E72BB5B92E00E83EC1 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7E62BB5B92E00E83EC1 /* SignupViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		7BF2E7E02BB5839100E83EC1 /* OfAsyncSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfAsyncSubject.swift; sourceTree = "<group>"; };
 		7BF2E7E22BB585AE00E83EC1 /* PasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewModel.swift; sourceTree = "<group>"; };
 		7BF2E7E42BB5921500E83EC1 /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
+		7BF2E7E62BB5B92E00E83EC1 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				041280692AEFA91E00972552 /* SignUpViewController.swift */,
 				0412806B2AEFABFE00972552 /* PasswordViewController.swift */,
 				7BF2E7E22BB585AE00E83EC1 /* PasswordViewModel.swift */,
+				7BF2E7E62BB5B92E00E83EC1 /* SignupViewModel.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				041280782AF1D14000972552 /* Resource.swift in Sources */,
+				7BF2E7E72BB5B92E00E83EC1 /* SignupViewModel.swift in Sources */,
 				0412806F2AEFAD2D00972552 /* BirthdayViewController.swift in Sources */,
 				7BF2E7E12BB5839100E83EC1 /* OfAsyncSubject.swift in Sources */,
 				041280652AEFA2F000972552 /* SignTextField.swift in Sources */,

@@ -13,6 +13,7 @@ class SignInViewController: UIViewController {
     let emailTextField = SignTextField(placeholderText: "이메일을 입력해주세요")
     let passwordTextField = SignTextField(placeholderText: "비밀번호를 입력해주세요")
     let signInButton = PointButton(title: "로그인")
+    
     let signUpButton = UIButton()
     
     override func viewDidLoad() {
