@@ -32,6 +32,7 @@
 		7BF2E7DF2BB5802700E83EC1 /* OfReplySubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7DE2BB5802700E83EC1 /* OfReplySubject.swift */; };
 		7BF2E7E12BB5839100E83EC1 /* OfAsyncSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7E02BB5839100E83EC1 /* OfAsyncSubject.swift */; };
 		7BF2E7E32BB585AE00E83EC1 /* PasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7E22BB585AE00E83EC1 /* PasswordViewModel.swift */; };
+		7BF2E7E52BB5921500E83EC1 /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7E42BB5921500E83EC1 /* PhoneViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		7BF2E7DE2BB5802700E83EC1 /* OfReplySubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfReplySubject.swift; sourceTree = "<group>"; };
 		7BF2E7E02BB5839100E83EC1 /* OfAsyncSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfAsyncSubject.swift; sourceTree = "<group>"; };
 		7BF2E7E22BB585AE00E83EC1 /* PasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewModel.swift; sourceTree = "<group>"; };
+		7BF2E7E42BB5921500E83EC1 /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 				0412806E2AEFAD2D00972552 /* BirthdayViewController.swift */,
 				041280702AEFAD3D00972552 /* PhoneViewController.swift */,
 				041280722AEFAD4B00972552 /* NicknameViewController.swift */,
+				7BF2E7E42BB5921500E83EC1 /* PhoneViewModel.swift */,
 			);
 			path = SignUpOptional;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				7BF2E7DF2BB5802700E83EC1 /* OfReplySubject.swift in Sources */,
 				7BF2E7E32BB585AE00E83EC1 /* PasswordViewModel.swift in Sources */,
 				041280282AEF9BAB00972552 /* ViewController.swift in Sources */,
+				7BF2E7E52BB5921500E83EC1 /* PhoneViewModel.swift in Sources */,
 				041280632AEFA0CE00972552 /* PointButton.swift in Sources */,
 				041280242AEF9BAB00972552 /* AppDelegate.swift in Sources */,
 				041280732AEFAD4B00972552 /* NicknameViewController.swift in Sources */,
