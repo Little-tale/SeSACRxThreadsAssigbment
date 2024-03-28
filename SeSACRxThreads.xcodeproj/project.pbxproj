@@ -31,6 +31,7 @@
 		7BF2E7DD2BB5692700E83EC1 /* OfCombineLatest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7DC2BB5692700E83EC1 /* OfCombineLatest.swift */; };
 		7BF2E7DF2BB5802700E83EC1 /* OfReplySubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7DE2BB5802700E83EC1 /* OfReplySubject.swift */; };
 		7BF2E7E12BB5839100E83EC1 /* OfAsyncSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7E02BB5839100E83EC1 /* OfAsyncSubject.swift */; };
+		7BF2E7E32BB585AE00E83EC1 /* PasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7E22BB585AE00E83EC1 /* PasswordViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		7BF2E7DC2BB5692700E83EC1 /* OfCombineLatest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfCombineLatest.swift; sourceTree = "<group>"; };
 		7BF2E7DE2BB5802700E83EC1 /* OfReplySubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfReplySubject.swift; sourceTree = "<group>"; };
 		7BF2E7E02BB5839100E83EC1 /* OfAsyncSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfAsyncSubject.swift; sourceTree = "<group>"; };
+		7BF2E7E22BB585AE00E83EC1 /* PasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 			children = (
 				041280692AEFA91E00972552 /* SignUpViewController.swift */,
 				0412806B2AEFABFE00972552 /* PasswordViewController.swift */,
+				7BF2E7E22BB585AE00E83EC1 /* PasswordViewModel.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				0412806C2AEFABFE00972552 /* PasswordViewController.swift in Sources */,
 				041280562AEFA04800972552 /* SignInViewController.swift in Sources */,
 				7BF2E7DF2BB5802700E83EC1 /* OfReplySubject.swift in Sources */,
+				7BF2E7E32BB585AE00E83EC1 /* PasswordViewModel.swift in Sources */,
 				041280282AEF9BAB00972552 /* ViewController.swift in Sources */,
 				041280632AEFA0CE00972552 /* PointButton.swift in Sources */,
 				041280242AEF9BAB00972552 /* AppDelegate.swift in Sources */,
