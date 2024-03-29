@@ -36,6 +36,7 @@
 		7BF2E7E72BB5B92E00E83EC1 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7E62BB5B92E00E83EC1 /* SignupViewModel.swift */; };
 		7BF2E7E92BB6BB3900E83EC1 /* BirthDayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7E82BB6BB3900E83EC1 /* BirthDayViewModel.swift */; };
 		7BF2E7EC2BB6D9D200E83EC1 /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7EB2BB6D9D200E83EC1 /* SampleViewController.swift */; };
+		7BF2E7EF2BB76BC400E83EC1 /* SampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7EE2BB76BC400E83EC1 /* SampleViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		7BF2E7E62BB5B92E00E83EC1 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		7BF2E7E82BB6BB3900E83EC1 /* BirthDayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDayViewModel.swift; sourceTree = "<group>"; };
 		7BF2E7EB2BB6D9D200E83EC1 /* SampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
+		7BF2E7EE2BB76BC400E83EC1 /* SampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 		041280222AEF9BAB00972552 /* SeSACRxThreads */ = {
 			isa = PBXGroup;
 			children = (
+				7BF2E7ED2BB7675800E83EC1 /* New Group */,
 				7BF2E7EA2BB6D9CC00E83EC1 /* SampleView */,
 				7BF2E7DB2BB568CC00E83EC1 /* Plractice */,
 				041280532AEF9C1F00972552 /* SignUp */,
@@ -228,8 +231,16 @@
 			isa = PBXGroup;
 			children = (
 				7BF2E7EB2BB6D9D200E83EC1 /* SampleViewController.swift */,
+				7BF2E7EE2BB76BC400E83EC1 /* SampleViewModel.swift */,
 			);
 			path = SampleView;
+			sourceTree = "<group>";
+		};
+		7BF2E7ED2BB7675800E83EC1 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,6 +394,7 @@
 				041280282AEF9BAB00972552 /* ViewController.swift in Sources */,
 				7BF2E7E52BB5921500E83EC1 /* PhoneViewModel.swift in Sources */,
 				041280632AEFA0CE00972552 /* PointButton.swift in Sources */,
+				7BF2E7EF2BB76BC400E83EC1 /* SampleViewModel.swift in Sources */,
 				041280242AEF9BAB00972552 /* AppDelegate.swift in Sources */,
 				7BF2E7E92BB6BB3900E83EC1 /* BirthDayViewModel.swift in Sources */,
 				041280732AEFAD4B00972552 /* NicknameViewController.swift in Sources */,
