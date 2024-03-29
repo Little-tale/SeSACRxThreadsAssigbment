@@ -34,6 +34,8 @@
 		7BF2E7E32BB585AE00E83EC1 /* PasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7E22BB585AE00E83EC1 /* PasswordViewModel.swift */; };
 		7BF2E7E52BB5921500E83EC1 /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7E42BB5921500E83EC1 /* PhoneViewModel.swift */; };
 		7BF2E7E72BB5B92E00E83EC1 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7E62BB5B92E00E83EC1 /* SignupViewModel.swift */; };
+		7BF2E7E92BB6BB3900E83EC1 /* BirthDayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7E82BB6BB3900E83EC1 /* BirthDayViewModel.swift */; };
+		7BF2E7EC2BB6D9D200E83EC1 /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7EB2BB6D9D200E83EC1 /* SampleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,8 @@
 		7BF2E7E22BB585AE00E83EC1 /* PasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewModel.swift; sourceTree = "<group>"; };
 		7BF2E7E42BB5921500E83EC1 /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
 		7BF2E7E62BB5B92E00E83EC1 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
+		7BF2E7E82BB6BB3900E83EC1 /* BirthDayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDayViewModel.swift; sourceTree = "<group>"; };
+		7BF2E7EB2BB6D9D200E83EC1 /* SampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,7 @@
 		041280222AEF9BAB00972552 /* SeSACRxThreads */ = {
 			isa = PBXGroup;
 			children = (
+				7BF2E7EA2BB6D9CC00E83EC1 /* SampleView */,
 				7BF2E7DB2BB568CC00E83EC1 /* Plractice */,
 				041280532AEF9C1F00972552 /* SignUp */,
 				041280542AEF9C2600972552 /* SignIn */,
@@ -204,6 +209,7 @@
 				041280702AEFAD3D00972552 /* PhoneViewController.swift */,
 				041280722AEFAD4B00972552 /* NicknameViewController.swift */,
 				7BF2E7E42BB5921500E83EC1 /* PhoneViewModel.swift */,
+				7BF2E7E82BB6BB3900E83EC1 /* BirthDayViewModel.swift */,
 			);
 			path = SignUpOptional;
 			sourceTree = "<group>";
@@ -216,6 +222,14 @@
 				7BF2E7E02BB5839100E83EC1 /* OfAsyncSubject.swift */,
 			);
 			path = Plractice;
+			sourceTree = "<group>";
+		};
+		7BF2E7EA2BB6D9CC00E83EC1 /* SampleView */ = {
+			isa = PBXGroup;
+			children = (
+				7BF2E7EB2BB6D9D200E83EC1 /* SampleViewController.swift */,
+			);
+			path = SampleView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,8 +384,10 @@
 				7BF2E7E52BB5921500E83EC1 /* PhoneViewModel.swift in Sources */,
 				041280632AEFA0CE00972552 /* PointButton.swift in Sources */,
 				041280242AEF9BAB00972552 /* AppDelegate.swift in Sources */,
+				7BF2E7E92BB6BB3900E83EC1 /* BirthDayViewModel.swift in Sources */,
 				041280732AEFAD4B00972552 /* NicknameViewController.swift in Sources */,
 				7BF2E7DD2BB5692700E83EC1 /* OfCombineLatest.swift in Sources */,
+				7BF2E7EC2BB6D9D200E83EC1 /* SampleViewController.swift in Sources */,
 				0412806A2AEFA91E00972552 /* SignUpViewController.swift in Sources */,
 				041280712AEFAD3D00972552 /* PhoneViewController.swift in Sources */,
 				041280262AEF9BAB00972552 /* SceneDelegate.swift in Sources */,
