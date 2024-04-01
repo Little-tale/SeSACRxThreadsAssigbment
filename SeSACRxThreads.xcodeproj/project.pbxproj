@@ -31,6 +31,11 @@
 		7B5E15222BBAAA72008065BE /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E151F2BBAAA72008065BE /* SearchTableViewCell.swift */; };
 		7B5E15232BBAAA72008065BE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E15202BBAAA72008065BE /* SearchViewController.swift */; };
 		7B5E15252BBAAAAB008065BE /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E15242BBAAAAB008065BE /* SearchViewModel.swift */; };
+		7B5E152F2BBAF41E008065BE /* ShoppinListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E152E2BBAF41E008065BE /* ShoppinListViewController.swift */; };
+		7B5E15312BBAF46D008065BE /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E15302BBAF46D008065BE /* CustomSearchBar.swift */; };
+		7B5E15332BBAF92A008065BE /* ShoppingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E15322BBAF92A008065BE /* ShoppingViewModel.swift */; };
+		7B5E15352BBAF9ED008065BE /* ShoppingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E15342BBAF9ED008065BE /* ShoppingTableViewCell.swift */; };
+		7B5E15372BBAFACE008065BE /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E15362BBAFACE008065BE /* CustomButton.swift */; };
 		7BF2E7DD2BB5692700E83EC1 /* OfCombineLatest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7DC2BB5692700E83EC1 /* OfCombineLatest.swift */; };
 		7BF2E7DF2BB5802700E83EC1 /* OfReplySubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7DE2BB5802700E83EC1 /* OfReplySubject.swift */; };
 		7BF2E7E12BB5839100E83EC1 /* OfAsyncSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7E02BB5839100E83EC1 /* OfAsyncSubject.swift */; };
@@ -85,6 +90,11 @@
 		7B5E151F2BBAAA72008065BE /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		7B5E15202BBAAA72008065BE /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		7B5E15242BBAAAAB008065BE /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		7B5E152E2BBAF41E008065BE /* ShoppinListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppinListViewController.swift; sourceTree = "<group>"; };
+		7B5E15302BBAF46D008065BE /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
+		7B5E15322BBAF92A008065BE /* ShoppingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingViewModel.swift; sourceTree = "<group>"; };
+		7B5E15342BBAF9ED008065BE /* ShoppingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewCell.swift; sourceTree = "<group>"; };
+		7B5E15362BBAFACE008065BE /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		7BF2E7DC2BB5692700E83EC1 /* OfCombineLatest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfCombineLatest.swift; sourceTree = "<group>"; };
 		7BF2E7DE2BB5802700E83EC1 /* OfReplySubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfReplySubject.swift; sourceTree = "<group>"; };
 		7BF2E7E02BB5839100E83EC1 /* OfAsyncSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfAsyncSubject.swift; sourceTree = "<group>"; };
@@ -147,6 +157,7 @@
 		041280222AEF9BAB00972552 /* SeSACRxThreads */ = {
 			isa = PBXGroup;
 			children = (
+				7B5E152D2BBAF40A008065BE /* ShoppingList */,
 				7B5E151E2BBAAA2B008065BE /* SearchView */,
 				7BF2E7ED2BB7675800E83EC1 /* New Group */,
 				7BF2E7EA2BB6D9CC00E83EC1 /* SampleView */,
@@ -240,6 +251,18 @@
 				7B5E15242BBAAAAB008065BE /* SearchViewModel.swift */,
 			);
 			path = CodeSample_240401;
+			sourceTree = "<group>";
+		};
+		7B5E152D2BBAF40A008065BE /* ShoppingList */ = {
+			isa = PBXGroup;
+			children = (
+				7B5E152E2BBAF41E008065BE /* ShoppinListViewController.swift */,
+				7B5E15302BBAF46D008065BE /* CustomSearchBar.swift */,
+				7B5E15322BBAF92A008065BE /* ShoppingViewModel.swift */,
+				7B5E15342BBAF9ED008065BE /* ShoppingTableViewCell.swift */,
+				7B5E15362BBAFACE008065BE /* CustomButton.swift */,
+			);
+			path = ShoppingList;
 			sourceTree = "<group>";
 		};
 		7BF2E7DB2BB568CC00E83EC1 /* Plractice */ = {
@@ -408,6 +431,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				041280782AF1D14000972552 /* Resource.swift in Sources */,
+				7B5E15352BBAF9ED008065BE /* ShoppingTableViewCell.swift in Sources */,
 				7BF2E7E72BB5B92E00E83EC1 /* SignupViewModel.swift in Sources */,
 				0412806F2AEFAD2D00972552 /* BirthdayViewController.swift in Sources */,
 				7BF2E7E12BB5839100E83EC1 /* OfAsyncSubject.swift in Sources */,
@@ -420,7 +444,9 @@
 				041280282AEF9BAB00972552 /* ViewController.swift in Sources */,
 				7BF2E7E52BB5921500E83EC1 /* PhoneViewModel.swift in Sources */,
 				041280632AEFA0CE00972552 /* PointButton.swift in Sources */,
+				7B5E15372BBAFACE008065BE /* CustomButton.swift in Sources */,
 				7BF2E7EF2BB76BC400E83EC1 /* SampleViewModel.swift in Sources */,
+				7B5E15332BBAF92A008065BE /* ShoppingViewModel.swift in Sources */,
 				041280242AEF9BAB00972552 /* AppDelegate.swift in Sources */,
 				7BF2E7E92BB6BB3900E83EC1 /* BirthDayViewModel.swift in Sources */,
 				041280732AEFAD4B00972552 /* NicknameViewController.swift in Sources */,
@@ -429,6 +455,8 @@
 				7BF2E7EC2BB6D9D200E83EC1 /* SampleViewController.swift in Sources */,
 				0412806A2AEFA91E00972552 /* SignUpViewController.swift in Sources */,
 				7B5E15252BBAAAAB008065BE /* SearchViewModel.swift in Sources */,
+				7B5E152F2BBAF41E008065BE /* ShoppinListViewController.swift in Sources */,
+				7B5E15312BBAF46D008065BE /* CustomSearchBar.swift in Sources */,
 				041280712AEFAD3D00972552 /* PhoneViewController.swift in Sources */,
 				041280262AEF9BAB00972552 /* SceneDelegate.swift in Sources */,
 				041280582AEFA05300972552 /* SignInViewModel.swift in Sources */,
@@ -622,6 +650,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -652,6 +681,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

@@ -12,13 +12,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
  
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-
+        
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         
-        let rootViewController = UINavigationController(rootViewController: SearchViewController()) //  PasswordViewController()
+        let rootViewController = UINavigationController(rootViewController: ShoppinListViewController() ) //  PasswordViewController()
          // OfCombineLatest() SignInViewController() // OfCombineLatest() // OfReplySubject ()
-        // BirthdayViewController()
+        // BirthdayViewController() ShoppinListViewController
+        // SearchViewController()
         window?.rootViewController = rootViewController
         window?.makeKeyAndVisible()
 
