@@ -59,6 +59,7 @@ class SearchViewModel: ViewModelType {
         let searchTab = input.searchTextEvent.withLatestFrom(input.searchTextIn.orEmpty.distinctUntilChanged())
         
         Observable.merge(searchText,searchTab)
+            .distinctUntilChanged()
             .subscribe(with: self) { owner, value in
             let result = value.isEmpty ? owner.data : owner.data.filter({ $0.contains(value) })
             owner.dataList.onNext(result)
