@@ -30,6 +30,7 @@ class SampleViewModel: ViewModelType {
     struct Output {
         let outputValues: BehaviorRelay<[String]>
     }
+    
     func proceccing(_ input: Input) -> Output {
     
         input.tapControl.withLatestFrom(input.textControl.orEmpty)
@@ -46,10 +47,8 @@ class SampleViewModel: ViewModelType {
             owner.dummyData.accept(current)
         }.disposed(by: disposeBag)
         
-       
         return Output(outputValues: dummyData)
     }
-    
 }
 
 

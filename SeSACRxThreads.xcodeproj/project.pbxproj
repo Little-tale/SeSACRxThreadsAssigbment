@@ -28,6 +28,9 @@
 		041280712AEFAD3D00972552 /* PhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041280702AEFAD3D00972552 /* PhoneViewController.swift */; };
 		041280732AEFAD4B00972552 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041280722AEFAD4B00972552 /* NicknameViewController.swift */; };
 		041280782AF1D14000972552 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041280772AF1D14000972552 /* Resource.swift */; };
+		7B5E15222BBAAA72008065BE /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E151F2BBAAA72008065BE /* SearchTableViewCell.swift */; };
+		7B5E15232BBAAA72008065BE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E15202BBAAA72008065BE /* SearchViewController.swift */; };
+		7B5E15252BBAAAAB008065BE /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E15242BBAAAAB008065BE /* SearchViewModel.swift */; };
 		7BF2E7DD2BB5692700E83EC1 /* OfCombineLatest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7DC2BB5692700E83EC1 /* OfCombineLatest.swift */; };
 		7BF2E7DF2BB5802700E83EC1 /* OfReplySubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7DE2BB5802700E83EC1 /* OfReplySubject.swift */; };
 		7BF2E7E12BB5839100E83EC1 /* OfAsyncSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7E02BB5839100E83EC1 /* OfAsyncSubject.swift */; };
@@ -79,6 +82,9 @@
 		041280702AEFAD3D00972552 /* PhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewController.swift; sourceTree = "<group>"; };
 		041280722AEFAD4B00972552 /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
 		041280772AF1D14000972552 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		7B5E151F2BBAAA72008065BE /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		7B5E15202BBAAA72008065BE /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		7B5E15242BBAAAAB008065BE /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		7BF2E7DC2BB5692700E83EC1 /* OfCombineLatest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfCombineLatest.swift; sourceTree = "<group>"; };
 		7BF2E7DE2BB5802700E83EC1 /* OfReplySubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfReplySubject.swift; sourceTree = "<group>"; };
 		7BF2E7E02BB5839100E83EC1 /* OfAsyncSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfAsyncSubject.swift; sourceTree = "<group>"; };
@@ -141,6 +147,7 @@
 		041280222AEF9BAB00972552 /* SeSACRxThreads */ = {
 			isa = PBXGroup;
 			children = (
+				7B5E151E2BBAAA2B008065BE /* SearchView */,
 				7BF2E7ED2BB7675800E83EC1 /* New Group */,
 				7BF2E7EA2BB6D9CC00E83EC1 /* SampleView */,
 				7BF2E7DB2BB568CC00E83EC1 /* Plractice */,
@@ -215,6 +222,24 @@
 				7BF2E7E82BB6BB3900E83EC1 /* BirthDayViewModel.swift */,
 			);
 			path = SignUpOptional;
+			sourceTree = "<group>";
+		};
+		7B5E151E2BBAAA2B008065BE /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				7B5E15212BBAAA72008065BE /* CodeSample_240401 */,
+			);
+			path = SearchView;
+			sourceTree = "<group>";
+		};
+		7B5E15212BBAAA72008065BE /* CodeSample_240401 */ = {
+			isa = PBXGroup;
+			children = (
+				7B5E151F2BBAAA72008065BE /* SearchTableViewCell.swift */,
+				7B5E15202BBAAA72008065BE /* SearchViewController.swift */,
+				7B5E15242BBAAAAB008065BE /* SearchViewModel.swift */,
+			);
+			path = CodeSample_240401;
 			sourceTree = "<group>";
 		};
 		7BF2E7DB2BB568CC00E83EC1 /* Plractice */ = {
@@ -390,6 +415,7 @@
 				0412806C2AEFABFE00972552 /* PasswordViewController.swift in Sources */,
 				041280562AEFA04800972552 /* SignInViewController.swift in Sources */,
 				7BF2E7DF2BB5802700E83EC1 /* OfReplySubject.swift in Sources */,
+				7B5E15222BBAAA72008065BE /* SearchTableViewCell.swift in Sources */,
 				7BF2E7E32BB585AE00E83EC1 /* PasswordViewModel.swift in Sources */,
 				041280282AEF9BAB00972552 /* ViewController.swift in Sources */,
 				7BF2E7E52BB5921500E83EC1 /* PhoneViewModel.swift in Sources */,
@@ -399,8 +425,10 @@
 				7BF2E7E92BB6BB3900E83EC1 /* BirthDayViewModel.swift in Sources */,
 				041280732AEFAD4B00972552 /* NicknameViewController.swift in Sources */,
 				7BF2E7DD2BB5692700E83EC1 /* OfCombineLatest.swift in Sources */,
+				7B5E15232BBAAA72008065BE /* SearchViewController.swift in Sources */,
 				7BF2E7EC2BB6D9D200E83EC1 /* SampleViewController.swift in Sources */,
 				0412806A2AEFA91E00972552 /* SignUpViewController.swift in Sources */,
+				7B5E15252BBAAAAB008065BE /* SearchViewModel.swift in Sources */,
 				041280712AEFAD3D00972552 /* PhoneViewController.swift in Sources */,
 				041280262AEF9BAB00972552 /* SceneDelegate.swift in Sources */,
 				041280582AEFA05300972552 /* SignInViewModel.swift in Sources */,
