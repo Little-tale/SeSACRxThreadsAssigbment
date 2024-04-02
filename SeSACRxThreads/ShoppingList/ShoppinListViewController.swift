@@ -32,11 +32,26 @@ class ShoppinListViewController: UIViewController {
     // ShoppingTableViewCell
     private func subscibe() {
         
+        // 뷰모델에선 직접 접근이 불가하여 OnNext로 하였었으나 효과가 없었음
+        // 여기서 직접 접근해서 "" 를 주어도 효과는 또 없었음
+        // 뷰모델에서도 여기서도 결국엔 "" 를 주었지만 여전히 전체가 나오지 않음
+        // orEmpty 라서? 그것도 아니다
+        // 위치가 문제인가? 그것도 아니다 맨 위로 올려도 호출 위치 문제는 아니다.
+        //
+//        searchView.addButton.rx.tap.withLatestFrom(searchView.textField.rx.text).bind(with: self) { owner, string in
+//            if let string {
+//                owner.viewModel.data.append(string)
+//            }
+//            owner.searchView.textField.rx.text.onNext("")
+//            owner.searchView.textField.text = ""
+//        }.disposed(by: disPoseBag)
+        
+        // Test
         let input = ShoppingViewModel.Input(
-            textField: searchView.searchBar.rx.text,
+            textField: searchView.textField.rx.text,
             addButton: searchView.addButton.rx.tap
         )
-        
+
         let output = viewModel.proceccing(input)
         
         print("subscibe")
@@ -47,6 +62,9 @@ class ShoppinListViewController: UIViewController {
             cell.setUI(title: value)
             
         }.disposed(by: disPoseBag)
+        
+      
+        
         
     }
     

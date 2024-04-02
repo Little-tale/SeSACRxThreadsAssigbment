@@ -31,14 +31,16 @@ class ShoppingViewModel: ViewModelType {
      
         // 테이블뷰 셀 아앗풋
         let outputData: Observable<[String]>
+        
     }
     
     func proceccing(_ input: Input) -> Output {
         print("proceccing")
         
         input.addButton.withLatestFrom(input.textField.orEmpty).bind(with: self) { owner, string in
+            print(owner.data)
             owner.data.append(string)
-            input.textField.onNext("")
+            input.textField.onNext("12")
         }.disposed(by: disposeBag)
         
         // 텍스트 필터링
@@ -49,13 +51,15 @@ class ShoppingViewModel: ViewModelType {
                 scheduler: MainScheduler.instance
             )
             .distinctUntilChanged()
-            .bind(with: self) { owner, string in
+            .subscribe(with: self, onNext: { owner, string in
+                print("textField 바인딩")
                 let result = string.isEmpty ? owner.data : owner.data.filter { $0.contains(string) }
+                print("textField 바인딩 \(result)")
                 owner.dummyData.onNext(result)
-            }
+            }, onCompleted: { _ in
+                print("complite : ")
+            })
             .disposed(by: disposeBag)
-        
-        
         
         
         return Output(outputData: dummyData)
