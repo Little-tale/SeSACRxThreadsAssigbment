@@ -96,6 +96,7 @@ extension SampleViewController: ViewControllerLayout {
     private func register(){
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
     }
+    
 }
 
 

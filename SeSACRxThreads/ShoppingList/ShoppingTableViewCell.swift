@@ -79,12 +79,15 @@ class ShoppingTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        disposeBag = .init()
+        disposeBag = DisposeBag()
+        viewModel.disposeBag = .init()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
 }
 
 

@@ -11,7 +11,9 @@ import RxSwift
 
 class ShoppingTableCellViewModel: ViewModelType {
     
-    let disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
+    
+    let modelUpdatted = PublishSubject<UserModel> ()
     
     struct Input {
         let inputcheckButton: ControlEvent<Void>
@@ -29,18 +31,20 @@ class ShoppingTableCellViewModel: ViewModelType {
         
         input.inputcheckButton
             .withLatestFrom(model)
-            .bind { userModel in
+            .bind(with: self) { owner, userModel in
                 var newModel = userModel
                 newModel.selectedBool.toggle()
                 model.onNext(newModel)
+                owner.modelUpdatted.onNext(newModel)
             }.disposed(by: disposeBag)
         
         input.inputStarButton
             .withLatestFrom(model)
-            .bind { userModel in
+            .bind(with: self) { owner, userModel in
                 var newModel = userModel
                 newModel.starBool.toggle()
                 model.onNext(newModel)
+                owner.modelUpdatted.onNext(newModel)
             }.disposed(by: disposeBag)
 
         return Output(ObserVelModel: model)

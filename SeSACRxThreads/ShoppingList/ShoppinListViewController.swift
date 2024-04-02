@@ -54,17 +54,13 @@ class ShoppinListViewController: UIViewController {
             print(cell)
             let input = cell.setUI(value)
             cell.viewModel.proceccing(input)
-                .ObserVelModel
-                .debounce(.seconds(1), scheduler: MainScheduler.instance)
-                .subscribe(onNext: {updataModel in
-                    print("별 업데이트 ",updataModel.starBool)
-                    if let index = self.viewModel.data.firstIndex(where: { $0.uuid == updataModel.uuid }) {
-                        self.viewModel.data[index] = updataModel
-                        let data = self.viewModel.data
-
-                        print("업데이트 된 ",self.viewModel.data[index].starBool)
+                .ObserVelModel.bind { userModel in
+                    if let index = self.viewModel.data.firstIndex(where: { $0.uuid == userModel.uuid }) {
+                        self.viewModel.data[index] = userModel
                     }
-                }).disposed(by: disPoseBag)
+                    //self.viewModel.dummyData.accept(self.viewModel.data)
+                }.disposed(by: disPoseBag)
+           
         }.disposed(by: disPoseBag)
     }
 
@@ -99,4 +95,25 @@ class ShoppinListViewController: UIViewController {
  // 정리해서 올리기
  
  // Test
+ */
+
+
+/*
+ print("별 업데이트 ",updataModel.starBool)
+ if let index = self.viewModel.data.firstIndex(where: { $0.uuid == updataModel.uuid }) {
+     self.viewModel.data[index] = updataModel
+     let re = self.viewModel.data
+     
+     self.viewModel.dummyData.accept(re)
+     
+     print("업데이트 된 ",self.viewModel.data[index].starBool)
+ 
+ 
+ cell.viewModel.proceccing(input)
+     .ObserVelModel
+     .subscribe(onNext: {updataModel in
+     
+         
+     }).disposed(by: disPoseBag)
+ }
  */
