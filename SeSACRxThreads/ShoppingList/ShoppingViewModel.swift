@@ -46,7 +46,7 @@ class ShoppingViewModel: ViewModelType {
     
     let disposeBag: DisposeBag
     
-    lazy var dummyData = BehaviorRelay(value: data)
+    lazy var dummyData = BehaviorSubject(value: data)
     
     
     init(_ disposeBag: DisposeBag) {
@@ -83,7 +83,7 @@ class ShoppingViewModel: ViewModelType {
                 print("textField 바인딩")
                 let result = string.isEmpty ? owner.data : owner.data.filter { $0.title.contains(string) }
                 print("textField 바인딩 \(result)")
-                owner.dummyData.accept(result)
+                owner.dummyData.onNext(result)
             }, onCompleted: { _ in
                 print("complite : ")
             })
@@ -99,8 +99,8 @@ class ShoppingViewModel: ViewModelType {
             owner.data.append(UserModel(title: string, selectedBool: false))
             
             input.textField.onNext("")
+            owner.dummyData.onNext(owner.data)
             
-            owner.dummyData.accept(owner.data)
         }.disposed(by: disposeBag)
         
         return Output(outputData: dummyData.asObservable())
