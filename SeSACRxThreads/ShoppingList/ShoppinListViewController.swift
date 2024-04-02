@@ -14,10 +14,12 @@ import RxCocoa
 class ShoppinListViewController: UIViewController {
     
     let searchView = CustomSearchBar()
-    let tableView = UITableView()
+    let tableView =  UITableView(frame: .zero, style: .insetGrouped)
     
     let disPoseBag = DisposeBag()
     lazy var viewModel = ShoppingViewModel(disPoseBag)
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,21 +34,12 @@ class ShoppinListViewController: UIViewController {
     // ShoppingTableViewCell
     private func subscibe() {
         
-        // 뷰모델에선 직접 접근이 불가하여 OnNext로 하였었으나 효과가 없었음
-        // 여기서 직접 접근해서 "" 를 주어도 효과는 또 없었음
-        // 뷰모델에서도 여기서도 결국엔 "" 를 주었지만 여전히 전체가 나오지 않음
-        // orEmpty 라서? 그것도 아니다
-        // 위치가 문제인가? 그것도 아니다 맨 위로 올려도 호출 위치 문제는 아니다.
-        //
-//        searchView.addButton.rx.tap.withLatestFrom(searchView.textField.rx.text).bind(with: self) { owner, string in
-//            if let string {
-//                owner.viewModel.data.append(string)
-//            }
-//            owner.searchView.textField.rx.text.onNext("")
-//            owner.searchView.textField.text = ""
-//        }.disposed(by: disPoseBag)
+        let tableSelected = tableView
+            .rx
+            .modelSelected(
+                ShoppingViewModel.self
+            )
         
-        // Test
         let input = ShoppingViewModel.Input(
             textField: searchView.textField.rx.text,
             addButton: searchView.addButton.rx.tap
@@ -55,19 +48,26 @@ class ShoppinListViewController: UIViewController {
         let output = viewModel.proceccing(input)
         
         print("subscibe")
-        
-        output.outputData.bind(to: tableView.rx.items(cellIdentifier: ShoppingTableViewCell.identifier, cellType: ShoppingTableViewCell.self)) { row, value, cell in
-            
+        // 뷰컨틀로러 에서
+        output.outputData.bind(to: tableView.rx.items(cellIdentifier: ShoppingTableViewCell.identifier, cellType: ShoppingTableViewCell.self)) { [weak self] row, value, cell in
+            guard let self else { return }
             print(cell)
-            cell.setUI(title: value)
-            
+            let input = cell.setUI(value)
+            cell.viewModel.proceccing(input)
+                .ObserVelModel
+                .debounce(.seconds(1), scheduler: MainScheduler.instance)
+                .subscribe(onNext: {updataModel in
+                    print("별 업데이트 ",updataModel.starBool)
+                    if let index = self.viewModel.data.firstIndex(where: { $0.uuid == updataModel.uuid }) {
+                        self.viewModel.data[index] = updataModel
+                        let data = self.viewModel.data
+
+                        print("업데이트 된 ",self.viewModel.data[index].starBool)
+                    }
+                }).disposed(by: disPoseBag)
         }.disposed(by: disPoseBag)
-        
-      
-        
-        
     }
-    
+
     private func setting(){
         view.backgroundColor = .white
         view.addSubview(searchView)
@@ -87,3 +87,16 @@ class ShoppinListViewController: UIViewController {
         }
     }
 }
+
+
+//1. 오늘의 회고록
+/*
+ // 뷰모델에선 직접 접근이 불가하여 OnNext로 하였었으나 효과가 없었음
+ // 여기서 직접 접근해서 "" 를 주어도 효과는 또 없었음
+ // 뷰모델에서도 여기서도 결국엔 "" 를 주었지만 여전히 전체가 나오지 않음
+ // orEmpty 라서? 그것도 아니다
+ // 위치가 문제인가? 그것도 아니다 맨 위로 올려도 호출 위치 문제는 아니다.
+ // 정리해서 올리기
+ 
+ // Test
+ */

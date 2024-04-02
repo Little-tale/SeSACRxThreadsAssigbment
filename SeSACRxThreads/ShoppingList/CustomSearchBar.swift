@@ -31,7 +31,7 @@ class CustomSearchBar: UIView {
         addButton.snp.makeConstraints { make in
             make.width.equalTo(80)
             make.height.equalTo(30)
-            make.centerY.equalTo(safeAreaLayoutGuide)
+            make.centerY.equalTo(textField)
             make.trailing.equalTo(safeAreaLayoutGuide).inset(10)
             make.leading.equalTo(textField.snp.trailing)
         }

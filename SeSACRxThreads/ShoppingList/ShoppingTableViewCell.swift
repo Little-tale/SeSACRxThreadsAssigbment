@@ -10,6 +10,8 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
+
+
 class ShoppingTableViewCell: UITableViewCell {
     
     static let identifier = "ShoppingTableViewCell"
@@ -22,6 +24,8 @@ class ShoppingTableViewCell: UITableViewCell {
     
     var disposeBag = DisposeBag()
     
+    var viewModel = ShoppingTableCellViewModel()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -29,11 +33,22 @@ class ShoppingTableViewCell: UITableViewCell {
         configure()
     }
     
-    func setUI(title: String?){
-        textsLabel.text = title
+    func setUI(_ model: UserModel) -> ShoppingTableCellViewModel.Input {
+        starButton.isSelected = model.starBool
+        checkButton.isSelected = model.selectedBool
+        textsLabel.text = model.title
+        
+        let input = ShoppingTableCellViewModel
+            .Input(
+                inputcheckButton: checkButton.rx.tap,
+                inputStarButton: starButton.rx.tap,
+                model: model
+            )
+        
+        return input
     }
-
     
+
     private func configure(){
         contentView.addSubview(checkButton)
         contentView.addSubview(textsLabel)
@@ -52,17 +67,49 @@ class ShoppingTableViewCell: UITableViewCell {
         }
         
         starButton.snp.makeConstraints { make in
-            make.trailing.equalTo(contentView.safeAreaLayoutGuide).inset(4)
+            make.trailing
+                .equalTo(
+                    contentView
+                        .safeAreaLayoutGuide
+                ).inset(4)
+            make.centerY.equalTo(textsLabel)
             make.size.equalTo(30)
         }
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        disposeBag = DisposeBag()
+        disposeBag = .init()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+
+
+/*
+ let input = ShoppingTableCellViewModel
+     .Input(inputModel: model)
+ 
+ let output = viewModel.proceccing(input)
+ 
+ output.checkButton.bind(
+     to: checkButton.rx.isSelected
+ ).disposed(
+     by: disposeBag
+ )
+ 
+ output.starButton.bind(
+     to: starButton.rx.isSelected
+ ).disposed(
+     by: disposeBag
+ )
+ 
+ output.title.bind(
+     to: textsLabel.rx.text
+ ).disposed(
+     by: disposeBag
+ )
+ */

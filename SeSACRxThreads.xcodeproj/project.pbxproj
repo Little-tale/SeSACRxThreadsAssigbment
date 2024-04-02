@@ -36,6 +36,7 @@
 		7B5E15332BBAF92A008065BE /* ShoppingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E15322BBAF92A008065BE /* ShoppingViewModel.swift */; };
 		7B5E15352BBAF9ED008065BE /* ShoppingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E15342BBAF9ED008065BE /* ShoppingTableViewCell.swift */; };
 		7B5E15372BBAFACE008065BE /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E15362BBAFACE008065BE /* CustomButton.swift */; };
+		7B5E15392BBBF07D008065BE /* ShoppingTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E15382BBBF07D008065BE /* ShoppingTableCellViewModel.swift */; };
 		7BF2E7DD2BB5692700E83EC1 /* OfCombineLatest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7DC2BB5692700E83EC1 /* OfCombineLatest.swift */; };
 		7BF2E7DF2BB5802700E83EC1 /* OfReplySubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7DE2BB5802700E83EC1 /* OfReplySubject.swift */; };
 		7BF2E7E12BB5839100E83EC1 /* OfAsyncSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7E02BB5839100E83EC1 /* OfAsyncSubject.swift */; };
@@ -95,6 +96,7 @@
 		7B5E15322BBAF92A008065BE /* ShoppingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingViewModel.swift; sourceTree = "<group>"; };
 		7B5E15342BBAF9ED008065BE /* ShoppingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewCell.swift; sourceTree = "<group>"; };
 		7B5E15362BBAFACE008065BE /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		7B5E15382BBBF07D008065BE /* ShoppingTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTableCellViewModel.swift; sourceTree = "<group>"; };
 		7BF2E7DC2BB5692700E83EC1 /* OfCombineLatest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfCombineLatest.swift; sourceTree = "<group>"; };
 		7BF2E7DE2BB5802700E83EC1 /* OfReplySubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfReplySubject.swift; sourceTree = "<group>"; };
 		7BF2E7E02BB5839100E83EC1 /* OfAsyncSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfAsyncSubject.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				7B5E15322BBAF92A008065BE /* ShoppingViewModel.swift */,
 				7B5E15342BBAF9ED008065BE /* ShoppingTableViewCell.swift */,
 				7B5E15362BBAFACE008065BE /* CustomButton.swift */,
+				7B5E15382BBBF07D008065BE /* ShoppingTableCellViewModel.swift */,
 			);
 			path = ShoppingList;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				0412806F2AEFAD2D00972552 /* BirthdayViewController.swift in Sources */,
 				7BF2E7E12BB5839100E83EC1 /* OfAsyncSubject.swift in Sources */,
 				041280652AEFA2F000972552 /* SignTextField.swift in Sources */,
+				7B5E15392BBBF07D008065BE /* ShoppingTableCellViewModel.swift in Sources */,
 				0412806C2AEFABFE00972552 /* PasswordViewController.swift in Sources */,
 				041280562AEFA04800972552 /* SignInViewController.swift in Sources */,
 				7BF2E7DF2BB5802700E83EC1 /* OfReplySubject.swift in Sources */,

@@ -47,6 +47,7 @@ class SearchViewModel: ViewModelType {
             owner.data.remove(at: indexPath.row)
             owner.dataList.onNext(owner.data)
             print(owner.dataList)
+            
         }.disposed(by: disPoseBag)
         
         // MARK: 물어보기
@@ -59,10 +60,11 @@ class SearchViewModel: ViewModelType {
         let searchTab = input.searchTextEvent.withLatestFrom(input.searchTextIn.orEmpty.distinctUntilChanged())
         
         Observable.merge(searchText,searchTab)
-            .distinctUntilChanged()
+            .throttle(.seconds(2), scheduler: MainScheduler.instance)
             .subscribe(with: self) { owner, value in
             let result = value.isEmpty ? owner.data : owner.data.filter({ $0.contains(value) })
             owner.dataList.onNext(result)
+                
             print(result)
         }.disposed(by: disPoseBag)
         
