@@ -58,8 +58,8 @@ class ShoppinListViewController: UIViewController {
                     if let index = self.viewModel.data.firstIndex(where: { $0.uuid == userModel.uuid }) {
                         self.viewModel.data[index] = userModel
                     }
-//                    self.viewModel.dummyData.accept(self.viewModel.data)
-                    
+                
+//                    self.viewModel.dummyData.onNext(self.viewModel.data)
                 }.disposed(by: disPoseBag)
            
         }.disposed(by: disPoseBag)
