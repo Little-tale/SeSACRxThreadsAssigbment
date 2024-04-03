@@ -49,14 +49,16 @@ class ShoppinListViewController: UIViewController {
         
         print("subscibe")
         // 뷰컨틀로러 에서
-        output.outputData.bind(to: tableView.rx.items(cellIdentifier: ShoppingTableViewCell.identifier, cellType: ShoppingTableViewCell.self)) { [weak self] row, value, cell in
+        output.outputData
+            .bind(to: tableView.rx.items(cellIdentifier: ShoppingTableViewCell.identifier, cellType: ShoppingTableViewCell.self)) { [weak self] row, value, cell in
             guard let self else { return }
             print(cell)
-            cell.settingModel(value)
-            cell.viewModel
+                cell.viewModel.delegate = viewModel
+                cell.settingModel(value)
         }.disposed(by: disPoseBag)
     }
 
+    
     private func setting(){
         view.backgroundColor = .white
         view.addSubview(searchView)
@@ -120,4 +122,17 @@ class ShoppinListViewController: UIViewController {
              
          }
      }.disposed(by: disPoseBag)
+ */
+
+
+/*
+ cell.viewModel?.proceccing(input)
+     .modelUpdated
+     .withUnretained(self)
+     .bind(onNext: { owner, modify in
+         if let index = self.viewModel.data.firstIndex(where: { $0.uuid == modify.uuid }) {
+             self.viewModel.data[index] = modify
+             self.viewModel.dummyData.onNext(self.viewModel.data)
+         }
+     }).disposed(by: disPoseBag)
  */

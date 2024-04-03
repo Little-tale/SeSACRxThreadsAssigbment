@@ -24,7 +24,7 @@ class ShoppingTableViewCell: UITableViewCell {
     
     var disposeBag = DisposeBag()
     
-    var viewModel: ShoppingTableCellViewModel?
+    var viewModel = ShoppingTableCellViewModel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -33,13 +33,28 @@ class ShoppingTableViewCell: UITableViewCell {
         configure()
     }
     
-    func settingModel(_ model: UserModel){
+    func settingModel(_ model: UserModel) {
         textsLabel.text = model.title
-        viewModel = ShoppingTableCellViewModel(userModel: model)
+        
         
         let input = ShoppingTableCellViewModel
-            .Input(checkButtonTap: checkButton.rx.tap, starButtonTap: starButton.rx.tap)
+            .Input(checkButtonTap: checkButton.rx.tap, starButtonTap: starButton.rx.tap,
+                   userModel: model
+            )
+
+        let output = viewModel.proceccing(input)
         
+        output.checkButtonState
+            .asDriver()
+            .distinctUntilChanged()
+            .drive(checkButton.rx.isSelected)
+            .disposed(by: disposeBag)
+        
+        output.starButtonState
+            .asDriver()
+            .distinctUntilChanged()
+            .drive(starButton.rx.isSelected)
+            .disposed(by: disposeBag)
     }
     
 
@@ -74,7 +89,7 @@ class ShoppingTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         disposeBag = DisposeBag()
-        viewModel?.disposeBag = .init()
+        viewModel.disposeBag = .init()
     }
     
     required init?(coder: NSCoder) {

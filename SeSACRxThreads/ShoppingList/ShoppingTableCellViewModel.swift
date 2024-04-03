@@ -9,49 +9,67 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-class ShoppingTableCellViewModel: ViewModelType {
+protocol ShoppingTableCellViewModelDelegate: AnyObject {
+    func modelChaged(_ model : UserModel)
+}
+
+class ShoppingTableCellViewModel {
     
     var disposeBag = DisposeBag()
     
-    private let userModel: BehaviorSubject<UserModel>
+    weak var delegate: ShoppingTableCellViewModelDelegate?
+    // let userModel: BehaviorSubject<UserModel>
     
+
     struct Input {
         let checkButtonTap: ControlEvent<Void>
         let starButtonTap: ControlEvent<Void>
-    
+        let userModel: UserModel
     }
-    
     struct Output {
-        let modelUpdated: Observable<UserModel>
-    }
-    
-    init(userModel: UserModel) {
-        self.userModel = BehaviorSubject(value: userModel)
+        let checkButtonState: BehaviorRelay<Bool>
+        let starButtonState: BehaviorRelay<Bool>
     }
     
     func proceccing(_ input: Input) -> Output {
+        
+        
+        let userObser = BehaviorSubject(value: input.userModel)
+        
+        
+        
         // 체크 버튼 탭 처리
         input.checkButtonTap
-            .withLatestFrom(userModel)
-            .subscribe(onNext: { [weak self] model in
+            .withLatestFrom(userObser)
+            .withUnretained(self)
+            .subscribe(onNext: { owner, model in
                 var newModel = model
                 newModel.selectedBool.toggle()
-                self?.userModel.onNext(newModel)
+                userObser.onNext(newModel)
+                owner.delegate?.modelChaged(newModel)
             }).disposed(by: disposeBag)
         
         // 별 버튼 탭 처리
         input.starButtonTap
-            .withLatestFrom(userModel)
-            .subscribe(onNext: { [weak self] model in
+            .withLatestFrom(userObser)
+            .withUnretained(self)
+            .subscribe(onNext: { owner, model in
                 var newModel = model
                 newModel.starBool.toggle()
-                self?.userModel.onNext(newModel)
+                userObser.onNext(newModel)
+                owner.delegate?.modelChaged(newModel)
             }).disposed(by: disposeBag)
         
-        return Output(modelUpdated: userModel.asObservable())
+        return Output(
+            checkButtonState: BehaviorRelay(
+                value: input.userModel.selectedBool
+            ),
+            starButtonState: BehaviorRelay(
+                value: input.userModel.starBool
+            )
+        )
         
     }
-
 }
 
 
