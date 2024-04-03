@@ -13,43 +13,45 @@ class ShoppingTableCellViewModel: ViewModelType {
     
     var disposeBag = DisposeBag()
     
-    let modelUpdatted = PublishSubject<UserModel> ()
+    private let userModel: BehaviorSubject<UserModel>
     
     struct Input {
-        let inputcheckButton: ControlEvent<Void>
-        let inputStarButton: ControlEvent<Void>
-        let model: UserModel
+        let checkButtonTap: ControlEvent<Void>
+        let starButtonTap: ControlEvent<Void>
+    
     }
     
-    
     struct Output {
-        let ObserVelModel: Observable<UserModel>
+        let modelUpdated: Observable<UserModel>
+    }
+    
+    init(userModel: UserModel) {
+        self.userModel = BehaviorSubject(value: userModel)
     }
     
     func proceccing(_ input: Input) -> Output {
-        let model = BehaviorSubject(value: input.model)
-        
-        input.inputcheckButton
-            .withLatestFrom(model)
-            .bind(with: self) { owner, userModel in
-                var newModel = userModel
+        // 체크 버튼 탭 처리
+        input.checkButtonTap
+            .withLatestFrom(userModel)
+            .subscribe(onNext: { [weak self] model in
+                var newModel = model
                 newModel.selectedBool.toggle()
-                model.onNext(newModel)
-                owner.modelUpdatted.onNext(newModel)
-            }.disposed(by: disposeBag)
+                self?.userModel.onNext(newModel)
+            }).disposed(by: disposeBag)
         
-        input.inputStarButton
-            .withLatestFrom(model)
-            .bind(with: self) { owner, userModel in
-                var newModel = userModel
+        // 별 버튼 탭 처리
+        input.starButtonTap
+            .withLatestFrom(userModel)
+            .subscribe(onNext: { [weak self] model in
+                var newModel = model
                 newModel.starBool.toggle()
-                model.onNext(newModel)
-                owner.modelUpdatted.onNext(newModel)
-            }.disposed(by: disposeBag)
-
-        return Output(ObserVelModel: model)
+                self?.userModel.onNext(newModel)
+            }).disposed(by: disposeBag)
+        
+        return Output(modelUpdated: userModel.asObservable())
+        
     }
-    
+
 }
 
 
@@ -72,4 +74,44 @@ input.inputcheckButton.bind(with: self) { owner, _ in
 
 let observer = Observable(model)
 return Output()
+ */
+
+
+/*
+ let modelUpdatted = PublishSubject<UserModel>()
+ 
+ struct Input {
+     let inputcheckButton: ControlEvent<Void>
+     let inputStarButton: ControlEvent<Void>
+     let model: UserModel
+ }
+ 
+ 
+ struct Output {
+     let ObserVelModel: Observable<UserModel>
+ }
+ 
+ func proceccing(_ input: Input) -> Output {
+     let model = BehaviorSubject(value: input.model)
+     
+     input.inputcheckButton
+         .withLatestFrom(model)
+         .bind(with: self) { owner, userModel in
+             var newModel = userModel
+             newModel.selectedBool.toggle()
+             model.onNext(newModel)
+             owner.modelUpdatted.onNext(newModel)
+         }.disposed(by: disposeBag)
+     
+     input.inputStarButton
+         .withLatestFrom(model)
+         .bind(with: self) { owner, userModel in
+             var newModel = userModel
+             newModel.starBool.toggle()
+             model.onNext(newModel)
+             owner.modelUpdatted.onNext(newModel)
+         }.disposed(by: disposeBag)
+
+     return Output(ObserVelModel: model)
+ }
  */

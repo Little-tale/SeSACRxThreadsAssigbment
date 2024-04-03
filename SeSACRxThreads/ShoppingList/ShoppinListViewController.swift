@@ -33,12 +33,12 @@ class ShoppinListViewController: UIViewController {
     
     // ShoppingTableViewCell
     private func subscibe() {
-        
-        let tableSelected = tableView
-            .rx
-            .modelSelected(
-                ShoppingViewModel.self
-            )
+//        
+//        let tableSelected = tableView
+//            .rx
+//            .modelSelected(
+//                ShoppingViewModel.self
+//            )
         
         let input = ShoppingViewModel.Input(
             textField: searchView.textField.rx.text,
@@ -52,16 +52,8 @@ class ShoppinListViewController: UIViewController {
         output.outputData.bind(to: tableView.rx.items(cellIdentifier: ShoppingTableViewCell.identifier, cellType: ShoppingTableViewCell.self)) { [weak self] row, value, cell in
             guard let self else { return }
             print(cell)
-            let input = cell.setUI(value)
-            cell.viewModel.proceccing(input)
-                .ObserVelModel.bind { userModel in
-                    if let index = self.viewModel.data.firstIndex(where: { $0.uuid == userModel.uuid }) {
-                        self.viewModel.data[index] = userModel
-                    }
-                
-//                    self.viewModel.dummyData.onNext(self.viewModel.data)
-                }.disposed(by: disPoseBag)
-           
+            cell.settingModel(value)
+            cell.viewModel
         }.disposed(by: disPoseBag)
     }
 
@@ -117,4 +109,15 @@ class ShoppinListViewController: UIViewController {
          
      }).disposed(by: disPoseBag)
  }
+ */
+
+
+/*
+ cell.viewModel.proceccing(input)
+     .ObserVelModel.bind { userModel in
+         if let index = self.viewModel.data.firstIndex(where: { $0.uuid == userModel.uuid }) {
+             self.viewModel.data[index] = userModel
+             
+         }
+     }.disposed(by: disPoseBag)
  */

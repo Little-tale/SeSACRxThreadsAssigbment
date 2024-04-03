@@ -47,7 +47,7 @@ class ShoppingViewModel: ViewModelType {
     let disposeBag: DisposeBag
     
     lazy var dummyData = BehaviorSubject(value: data)
-    
+
     
     init(_ disposeBag: DisposeBag) {
         self.disposeBag = disposeBag
@@ -95,7 +95,7 @@ class ShoppingViewModel: ViewModelType {
         .bind(with: self) {
             owner, string in
             print(owner.data)
-            
+        
             owner.data.append(UserModel(title: string, selectedBool: false))
             
             input.textField.onNext("")
@@ -105,4 +105,5 @@ class ShoppingViewModel: ViewModelType {
         
         return Output(outputData: dummyData.asObservable())
     }
+    
 }
