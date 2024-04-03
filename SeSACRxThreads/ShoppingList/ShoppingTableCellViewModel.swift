@@ -9,7 +9,7 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-protocol ShoppingTableCellViewModelDelegate: AnyObject {
+protocol ShoppingUserModelChangedDelegate: AnyObject {
     func modelChaged(_ model : UserModel)
 }
 
@@ -17,7 +17,7 @@ class ShoppingTableCellViewModel {
     
     var disposeBag = DisposeBag()
     
-    weak var delegate: ShoppingTableCellViewModelDelegate?
+    weak var delegate: ShoppingUserModelChangedDelegate?
     // let userModel: BehaviorSubject<UserModel>
     
 

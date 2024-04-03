@@ -36,7 +36,6 @@ class ShoppingTableViewCell: UITableViewCell {
     func settingModel(_ model: UserModel) {
         textsLabel.text = model.title
         
-        
         let input = ShoppingTableCellViewModel
             .Input(checkButtonTap: checkButton.rx.tap, starButtonTap: starButton.rx.tap,
                    userModel: model
@@ -55,6 +54,8 @@ class ShoppingTableViewCell: UITableViewCell {
             .distinctUntilChanged()
             .drive(starButton.rx.isSelected)
             .disposed(by: disposeBag)
+        
+        
     }
     
 

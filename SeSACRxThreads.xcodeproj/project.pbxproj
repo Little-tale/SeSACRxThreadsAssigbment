@@ -37,6 +37,8 @@
 		7B5E15352BBAF9ED008065BE /* ShoppingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E15342BBAF9ED008065BE /* ShoppingTableViewCell.swift */; };
 		7B5E15372BBAFACE008065BE /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E15362BBAFACE008065BE /* CustomButton.swift */; };
 		7B5E15392BBBF07D008065BE /* ShoppingTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E15382BBBF07D008065BE /* ShoppingTableCellViewModel.swift */; };
+		7B5E15412BBD35C5008065BE /* ShoppingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E15402BBD35C5008065BE /* ShoppingDetailViewController.swift */; };
+		7B5E15432BBD4BD6008065BE /* ShoppingDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E15422BBD4BD6008065BE /* ShoppingDetailViewModel.swift */; };
 		7BF2E7DD2BB5692700E83EC1 /* OfCombineLatest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7DC2BB5692700E83EC1 /* OfCombineLatest.swift */; };
 		7BF2E7DF2BB5802700E83EC1 /* OfReplySubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7DE2BB5802700E83EC1 /* OfReplySubject.swift */; };
 		7BF2E7E12BB5839100E83EC1 /* OfAsyncSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2E7E02BB5839100E83EC1 /* OfAsyncSubject.swift */; };
@@ -97,6 +99,8 @@
 		7B5E15342BBAF9ED008065BE /* ShoppingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewCell.swift; sourceTree = "<group>"; };
 		7B5E15362BBAFACE008065BE /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		7B5E15382BBBF07D008065BE /* ShoppingTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTableCellViewModel.swift; sourceTree = "<group>"; };
+		7B5E15402BBD35C5008065BE /* ShoppingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingDetailViewController.swift; sourceTree = "<group>"; };
+		7B5E15422BBD4BD6008065BE /* ShoppingDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingDetailViewModel.swift; sourceTree = "<group>"; };
 		7BF2E7DC2BB5692700E83EC1 /* OfCombineLatest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfCombineLatest.swift; sourceTree = "<group>"; };
 		7BF2E7DE2BB5802700E83EC1 /* OfReplySubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfReplySubject.swift; sourceTree = "<group>"; };
 		7BF2E7E02BB5839100E83EC1 /* OfAsyncSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfAsyncSubject.swift; sourceTree = "<group>"; };
@@ -264,6 +268,8 @@
 				7B5E15342BBAF9ED008065BE /* ShoppingTableViewCell.swift */,
 				7B5E15362BBAFACE008065BE /* CustomButton.swift */,
 				7B5E15382BBBF07D008065BE /* ShoppingTableCellViewModel.swift */,
+				7B5E15402BBD35C5008065BE /* ShoppingDetailViewController.swift */,
+				7B5E15422BBD4BD6008065BE /* ShoppingDetailViewModel.swift */,
 			);
 			path = ShoppingList;
 			sourceTree = "<group>";
@@ -452,6 +458,7 @@
 				7BF2E7EF2BB76BC400E83EC1 /* SampleViewModel.swift in Sources */,
 				7B5E15332BBAF92A008065BE /* ShoppingViewModel.swift in Sources */,
 				041280242AEF9BAB00972552 /* AppDelegate.swift in Sources */,
+				7B5E15412BBD35C5008065BE /* ShoppingDetailViewController.swift in Sources */,
 				7BF2E7E92BB6BB3900E83EC1 /* BirthDayViewModel.swift in Sources */,
 				041280732AEFAD4B00972552 /* NicknameViewController.swift in Sources */,
 				7BF2E7DD2BB5692700E83EC1 /* OfCombineLatest.swift in Sources */,
@@ -462,6 +469,7 @@
 				7B5E152F2BBAF41E008065BE /* ShoppinListViewController.swift in Sources */,
 				7B5E15312BBAF46D008065BE /* CustomSearchBar.swift in Sources */,
 				041280712AEFAD3D00972552 /* PhoneViewController.swift in Sources */,
+				7B5E15432BBD4BD6008065BE /* ShoppingDetailViewModel.swift in Sources */,
 				041280262AEF9BAB00972552 /* SceneDelegate.swift in Sources */,
 				041280582AEFA05300972552 /* SignInViewModel.swift in Sources */,
 			);

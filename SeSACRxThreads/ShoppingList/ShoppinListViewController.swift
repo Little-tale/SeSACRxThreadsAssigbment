@@ -19,6 +19,7 @@ class ShoppinListViewController: UIViewController {
     let disPoseBag = DisposeBag()
     lazy var viewModel = ShoppingViewModel(disPoseBag)
     
+    lazy var right = UIBarButtonItem(barButtonSystemItem: .undo, target: self, action: nil)
     
     
     override func viewDidLoad() {
@@ -33,17 +34,31 @@ class ShoppinListViewController: UIViewController {
     
     // ShoppingTableViewCell
     private func subscibe() {
-//        
-//        let tableSelected = tableView
-//            .rx
-//            .modelSelected(
-//                ShoppingViewModel.self
-//            )
+        
         
         let input = ShoppingViewModel.Input(
             textField: searchView.textField.rx.text,
-            addButton: searchView.addButton.rx.tap
+            addButton: searchView.addButton.rx.tap,
+            deleteRightButton: right.rx.tap
         )
+        // MARK: 테이블셀 클릭시 이동할 것인데 너무 다 UI와 넘기기 로직 이라고 생각해 여기서 진행
+        
+        tableView
+            .rx
+            .modelSelected(
+                UserModel.self
+            )
+            .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
+            .bind(with: self) { owner, model in
+                dump(model)
+                let vc = ShoppingDetailViewController(model, nibName: nil, bundle: nil)
+                
+                vc.viewModel.changedModelDelegate = owner.viewModel
+                vc.bind(model)
+                owner.navigationController?.pushViewController(vc, animated: true)
+
+            }.disposed(by: disPoseBag)
+        
 
         let output = viewModel.proceccing(input)
         
@@ -56,6 +71,13 @@ class ShoppinListViewController: UIViewController {
                 cell.viewModel.delegate = viewModel
                 cell.settingModel(value)
         }.disposed(by: disPoseBag)
+        
+        
+        output.outputDeleteButtonState.bind(with: self) { owner, bool in
+            owner.right.isEnabled = bool
+        }.disposed(by: disPoseBag)
+        
+        
     }
 
     
@@ -76,6 +98,9 @@ class ShoppinListViewController: UIViewController {
             make.top.equalTo(searchView.snp.bottom)
             make.horizontalEdges.bottom.equalTo(view.safeAreaLayoutGuide)
         }
+        
+        
+        navigationItem.rightBarButtonItem = right
     }
 }
 
