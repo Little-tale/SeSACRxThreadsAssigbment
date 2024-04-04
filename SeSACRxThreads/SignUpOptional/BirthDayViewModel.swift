@@ -11,7 +11,7 @@ import RxSwift
 
 
 class BirthDayViewModel: ViewModelType {
-    // "만 17세 이상만 가입 가능합니다."
+
     let disposeBag: DisposeBag
     
     let calendar = Calendar.current
@@ -39,7 +39,7 @@ class BirthDayViewModel: ViewModelType {
             .map {
                 ( year: "\($0.year!) 년",
                   month: "\($0.month!)월",
-                  day: "\($0.day!) 일")
+                  day: "\($0.day!) 일" )
             }
             .asDriver(onErrorJustReturn: (year: "", month: "", day: ""))
     
@@ -77,39 +77,9 @@ class BirthDayViewModel: ViewModelType {
         }
         return true
     }
-    
-    private func proceccingForBirthDay(_ date: Date) -> Bool {
-        
-        let calender = Calendar.current
-        
-        let current = calender.dateComponents([.year, .month, .day], from: Date())
-        
-        let user = calender.dateComponents([.year,.month,.day], from: date)
-        
-        if case let (year?, month?, day?) = (current.year, current.month, current.day) {
-            
-            guard case let (userY?, userM?, userD?) = (
-                user.year,user.month, user.day
-            ) else { return false }
-            
-             // 2024 - 2008
-            if year - userY < 18 {
-                // 만 18세 미만
-                return false
-            } else if year - userY == 18 {
-                // 만 18세인 경우, 월과 일을 확인해야 함
-                if month < userM {
-                    // 생일이 아직 안 지남
-                    return false
-                } else if month == userM && day < userD {
-                    // 같은 달이지만 생일이 지나지 않음
-                    return false
-                }
-            }
-        }
-        return true
-    }
+
 }
+
 
 /*
  let date1 = Date()
@@ -125,4 +95,36 @@ class BirthDayViewModel: ViewModelType {
  print(calender.dateComponents([.year, .month, .day], from: Date()))
  
  print(date)
+ */
+/*
+ private func proceccingForBirthDay(_ date: Date) -> Bool {
+     
+     let calender = Calendar.current
+     
+     let current = calender.dateComponents([.year, .month, .day], from: Date())
+     
+     let user = calender.dateComponents([.year,.month,.day], from: date)
+     
+     if case let (year?, month?, day?) = (current.year, current.month, current.day) {
+         
+         guard case let (userY?, userM?, userD?) = (
+             user.year,user.month, user.day
+         ) else { return false }
+         
+          // 2024 - 2008
+         if year - userY < 18 {
+             // 만 18세 미만
+             return false
+         } else if year - userY == 18 {
+             // 만 18세인 경우, 월과 일을 확인해야 함
+             if month < userM {
+                 // 생일이 아직 안 지남
+                 return false
+             } else if month == userM && day < userD {
+                 // 같은 달이지만 생일이 지나지 않음
+                 return false
+             }
+         }
+     }
+     return true
  */

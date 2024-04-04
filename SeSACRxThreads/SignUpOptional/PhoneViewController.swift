@@ -35,18 +35,24 @@ class PhoneViewController: UIViewController {
         
         let output = viewModel.proceccing(input)
         
-        output.validfirsText.bind(to: phoneTextField.rx.text).disposed(by: disposeBag)
+        output.validation
+            .drive(phoneTextField.rx.text)
+            .disposed(by: disposeBag)
+        // bind(to: phoneTextField.rx.text).disposed(by: disposeBag)
+        output.testText
+            .drive(descroptionLabel.rx.text)
+            .disposed(by: disposeBag)
+       
         
-        output.validation.bind(to: phoneTextField.rx.text).disposed(by: disposeBag)
+        output.validationBool
+            .drive(nextButton.rx.isEnabled)
+            .disposed(by: disposeBag)
         
-        output.testText.bind(to: descroptionLabel.rx.text).disposed(by: disposeBag)
-        
-        
-        output.validationBool.bind(with: self) { owner, bool in
-            owner.nextButton.isEnabled = bool
-            owner.nextButton.backgroundColor = bool ? .systemPink : .systemGray
-        }.disposed(by: disposeBag)
-        
+        output.validationBool
+            .drive(with: self) {
+                owner, value in
+                owner.nextButton.backgroundColor = value ? .systemPink : .systemGray
+            }.disposed(by: disposeBag)
         
         nextButton.rx.tap.bind(with: self) { owner, _ in
             owner.navigationController?.pushViewController(NicknameViewController(), animated: true)

@@ -133,12 +133,7 @@ extension ShoppingViewModel: ShoppingUserModelChangedDelegate {
 
         if let findIndex = data.firstIndex(where: { $0.uuid == model.uuid }) {
             print(findIndex)
-            
-            let test1 = data[findIndex]
-            let test2 = model
-            
-            let result = test1 == test2
-            
+    
             if data[findIndex] != model {
                 data[findIndex] = model
                 // dump(data[findIndex]) // 여기까진 매우 순조롭다.

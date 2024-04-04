@@ -12,9 +12,6 @@ import RxCocoa
 
 class PhoneViewModel: ViewModelType {
     
-    let firstNumber = Observable.just("010")
-    
-    
     struct Input {
         let phoneTextField: ControlProperty<String?>
         let nextButton: ControlEvent<Void>
@@ -26,31 +23,40 @@ class PhoneViewModel: ViewModelType {
     }
     
     struct Output {
-        let validfirsText: Observable<String>
         // 벨리데이션 텍스트
-        let validation: Observable<String>
+        let validation: Driver<String>
         // testerText
-        let testText: Observable<String>
+        let testText: Driver<String>
         // 벨리데이션 Bool
-        let validationBool: Observable<Bool>
+        let validationBool: Driver<Bool>
     }
     
     func proceccing(_ input: Input) -> Output {
       
-//        let text = input.phoneTextField.orEmpty.compactMap { String(Int($0)) }
+        // let firstEnter = Observable.just("010")
+        // 오늘 startWith 를 찾아내고 해결한거 남기기
+        let text = input
+            .phoneTextField
+            .orEmpty
+            .startWith("010")
+            .map {
+                $0.filter { $0.isNumber }
+            }.asDriver(onErrorJustReturn: "010")
         
-        let text = input.phoneTextField.orEmpty.map { $0.filter { $0.isNumber } }
+        let validatBool = text
+            .map { $0.count >= 10 }
+            .asDriver()
         
-        let validatBool = text.map { $0.count >= 10 }
-            .share(replay: 1)
+        let testText = validatBool
+            .map { $0 ? "" : "글자를 입력해주세요" }
+            .asDriver()
         
-        let testText = validatBool.map { $0 ? "" : "글자를 입력해주세요" }
         
         return Output(
-            validfirsText: firstNumber,
             validation: text,
             testText: testText,
             validationBool: validatBool
         )
     }
 }
+// 오늘 share 에 대해서 더욱 연구하고 알아보기
