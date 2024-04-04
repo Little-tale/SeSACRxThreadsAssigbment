@@ -10,8 +10,7 @@ import RxSwift
 import RxCocoa
 
 class ShoppingDetailViewModel: ViewModelType {
-    
-    
+
     weak var changedModelDelegate: ShoppingUserModelChangedDelegate?
     
     var disposeBag = DisposeBag()
@@ -67,7 +66,6 @@ class ShoppingDetailViewModel: ViewModelType {
             .bind(with: self) { owner, string in
                 owner.willModifyModel.title = string
             }.disposed(by: disposeBag)
-        
         
         input.SaveButton.bind(with: self) { owner, _ in
             owner.changedModelDelegate?.modelChaged(owner.willModifyModel)

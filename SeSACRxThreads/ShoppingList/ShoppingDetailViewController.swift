@@ -73,7 +73,11 @@ class ShoppingDetailViewController: UIViewController {
     func bind(_ model: UserModel){
         //let begiberModel = BehaviorSubject(value: model)
         
-        // 각 디테일 모델. Input의
+        // 각 디테일 모델. 
+        // Input의 ControlEvent<Void> X 3
+        // Input의 ControlProperty<String?> 인데 ?는 뷰모델에서 벗겨주는것이
+        // 맞다고 생각해서 옮김
+        
         let input = ShoppingDetailViewModel.Input(
             checkButtonControl: checkButton.rx.tap,
             starButtonControl: starButton.rx.tap,
@@ -92,18 +96,16 @@ class ShoppingDetailViewController: UIViewController {
             .disposed(by: disposeBag)
         
         
-        ////
         saveButton.rx.tap
-            .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
+
             .bind(with: self) { owner, _ in
                 owner.navigationController?.popViewController(animated: true)
+
             }.disposed(by: disposeBag)
         
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        viewModel.disposeBag = .init()
-    }
+    // 버튼 저장버튼을 누른후 뒤로갈때 Dispose를 이시점에 두는방법과
+    // 저장 버튼을 누른후에 뒤로 갈때 disposeBag = .init() 하는 방법 이 있는데
     
 }

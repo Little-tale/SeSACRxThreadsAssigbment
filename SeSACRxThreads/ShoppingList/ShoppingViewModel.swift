@@ -59,11 +59,10 @@ class ShoppingViewModel: ViewModelType {
         let textField : ControlProperty<String?>
         let addButton: ControlEvent<Void>
         let deleteRightButton: ControlEvent<Void>
-        // let TableViewCellClicked: ControlProperty<ㅍ
     }
     
     struct Output {
-        // 테이블뷰 셀 아앗풋
+        // 테이블뷰 셀 아웃풋
         let outputData: BehaviorSubject<[UserModel]>
         let outputDeleteButtonState: Observable<Bool>
     }
@@ -121,8 +120,6 @@ class ShoppingViewModel: ViewModelType {
             }
             .distinctUntilChanged()
         
-        
-        
         return Output(outputData: dummyData,outputDeleteButtonState: outputDeleteButtonState)
     }
     
@@ -136,6 +133,12 @@ extension ShoppingViewModel: ShoppingUserModelChangedDelegate {
 
         if let findIndex = data.firstIndex(where: { $0.uuid == model.uuid }) {
             print(findIndex)
+            
+            let test1 = data[findIndex]
+            let test2 = model
+            
+            let result = test1 == test2
+            
             if data[findIndex] != model {
                 data[findIndex] = model
                 // dump(data[findIndex]) // 여기까진 매우 순조롭다.
@@ -171,3 +174,6 @@ extension ShoppingViewModel: ShoppingUserModelChangedDelegate {
          owner.dummyData.onNext(owner.data)
      }.disposed(by: disposeBag)
  */
+
+
+

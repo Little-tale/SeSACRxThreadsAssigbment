@@ -33,10 +33,7 @@ class ShoppingTableCellViewModel {
     
     func proceccing(_ input: Input) -> Output {
         
-        
         let userObser = BehaviorSubject(value: input.userModel)
-        
-        
         
         // 체크 버튼 탭 처리
         input.checkButtonTap
@@ -59,6 +56,8 @@ class ShoppingTableCellViewModel {
                 userObser.onNext(newModel)
                 owner.delegate?.modelChaged(newModel)
             }).disposed(by: disposeBag)
+        
+    
         
         return Output(
             checkButtonState: BehaviorRelay(

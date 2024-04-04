@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 
-class ShoppinListViewController: UIViewController {
+class ShoppingListViewController: UIViewController {
     
     let searchView = CustomSearchBar()
     let tableView =  UITableView(frame: .zero, style: .insetGrouped)
@@ -77,6 +77,14 @@ class ShoppinListViewController: UIViewController {
             owner.right.isEnabled = bool
         }.disposed(by: disPoseBag)
         
+        // 키보드 내려가 지는가? 회고 Rx 적으로 키보드를 어떻게 내려볼것인가>
+        let viewTap = UITapGestureRecognizer()
+        viewTap.cancelsTouchesInView = false
+        tableView.addGestureRecognizer(viewTap)
+        viewTap.rx.event.bind(with: self) { owner, gesture in
+            print("작동 안하나뇨")
+            owner.view.endEditing(true)
+        }.disposed(by: disPoseBag)
         
     }
 
@@ -85,6 +93,7 @@ class ShoppinListViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(searchView)
         view.addSubview(tableView)
+        
         searchView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(10)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(10)
@@ -98,7 +107,6 @@ class ShoppinListViewController: UIViewController {
             make.top.equalTo(searchView.snp.bottom)
             make.horizontalEdges.bottom.equalTo(view.safeAreaLayoutGuide)
         }
-        
         
         navigationItem.rightBarButtonItem = right
     }
