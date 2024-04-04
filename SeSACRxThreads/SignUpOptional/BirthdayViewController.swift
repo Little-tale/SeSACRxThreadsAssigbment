@@ -84,24 +84,32 @@ class BirthdayViewController: UIViewController {
     
     
     private func subscribe(){
-        let input = BirthDayViewModel.Input(datePickerDate: birthDayPicker.rx.date)
+        
+        let input = BirthDayViewModel.Input(
+            datePickerDate: birthDayPicker.rx.date
+        )
         
         let output = viewModel.proceccing(input)
+                
+        output.year
+            .drive(yearLabel.rx.text)
+            .disposed(by: disposeBag)
+        output.month
+            .drive(monthLabel.rx.text)
+            .disposed(by: disposeBag)
+        output.day
+            .drive(dayLabel.rx.text)
+            .disposed(by: disposeBag)
+    
+        output.vaildate
+            .drive(nextButton.rx.isEnabled)
+            .disposed(by: disposeBag )
         
-        output.year.bind(to: yearLabel.rx.text).disposed(by: disposeBag)
-        output.month.bind(to: monthLabel.rx.text).disposed(by: disposeBag)
-        output.day.bind(to: dayLabel.rx.text).disposed(by: disposeBag)
+        output.vaildateText
+            .drive(infoLabel.rx.text)
+            .disposed(by: disposeBag)
         
-        output.vaildate.bind(with: self) { owner, bool in
-            owner.infoLabel.text = bool ? "가입가능한 나이입니다." : "만 17세 이상만 가입 가능합니다."
-            owner.infoLabel.textColor = bool ? .blue : .red
-            
-            owner.nextButton.isEnabled = bool
-            
-            owner.nextButton.backgroundColor = bool ? .blue : .lightGray
-            
-        }.disposed(by: disposeBag)
-        
+        // 오늘 UIApplication 을 알아보기
         nextButton.rx.tap.bind(with: self) { owner, _ in
             if let windowSceen = UIApplication.shared.connectedScenes.first as? UIWindowScene {
                 if let window = windowSceen.windows.first {
@@ -145,3 +153,18 @@ class BirthdayViewController: UIViewController {
     }
 
 }
+
+
+//        output.year.bind(to: yearLabel.rx.text).disposed(by: disposeBag)
+//        output.month.bind(to: monthLabel.rx.text).disposed(by: disposeBag)
+//        output.day.bind(to: dayLabel.rx.text).disposed(by: disposeBag)
+
+//        output.vaildate.bind(with: self) { owner, bool in
+//            owner.infoLabel.text = bool ? "가입가능한 나이입니다." : "만 17세 이상만 가입 가능합니다."
+//            owner.infoLabel.textColor = bool ? .blue : .red
+//
+//            owner.nextButton.isEnabled = bool
+//
+//            owner.nextButton.backgroundColor = bool ? .blue : .lightGray
+//
+//        }.disposed(by: disposeBag)

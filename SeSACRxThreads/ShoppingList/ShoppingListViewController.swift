@@ -58,8 +58,7 @@ class ShoppingListViewController: UIViewController {
                 owner.navigationController?.pushViewController(vc, animated: true)
 
             }.disposed(by: disPoseBag)
-        
-
+    
         let output = viewModel.proceccing(input)
         
         print("subscibe")

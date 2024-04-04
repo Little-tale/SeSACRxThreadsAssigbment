@@ -13,16 +13,20 @@ import RxSwift
 class BirthDayViewModel: ViewModelType {
     // "만 17세 이상만 가입 가능합니다."
     let disposeBag: DisposeBag
+    
+    let calendar = Calendar.current
    
     struct Input {
         let datePickerDate: ControlProperty<Date>
     }
     struct Output {
-        let year: Observable<String>
-        let month: Observable<String>
-        let day: Observable<String>
+        let year: Driver<String>
+        let month: Driver<String>
+        let day: Driver<String>
         
-        let vaildate: Observable<Bool>
+        let vaildate: Driver<Bool>
+        let vaildateText: Driver<String>
+        
     }
     init(_ disposeBag: DisposeBag) {
         self.disposeBag = disposeBag
@@ -30,29 +34,49 @@ class BirthDayViewModel: ViewModelType {
     
     func proceccing(_ input: Input) -> Output {
         
-        let year = input.datePickerDate.map {
-            let date = Calendar.current.component(.year, from: $0)
-            return "\(date)년"
+        let userDate = input.datePickerDate
+            .map { Calendar.current.dateComponents([.year, .month, .day], from: $0)}
+            .map {
+                ( year: "\($0.year!) 년",
+                  month: "\($0.month!)월",
+                  day: "\($0.day!) 일")
+            }
+            .asDriver(onErrorJustReturn: (year: "", month: "", day: ""))
+    
+        let vaildate = input.datePickerDate.withUnretained(self) .map { owner, date in
+            owner.checkForBirthDay(date)
         }
-        
-        let month = input.datePickerDate.map {
-            let date = Calendar.current.component(.month, from: $0)
-            return "\(date)월"
-        }
-        
-        let day = input.datePickerDate.map {
-            let date = Calendar.current.component(.day, from: $0)
-            return "\(date)일"
-        }
-        
-        let vaildate = input.datePickerDate.map {[weak self] date in
-            self?.proceccingForBirthDay(date) ?? false
-        }
-        
-       
-        return Output(year: year, month: month, day: day, vaildate: vaildate)
+            .asDriver(onErrorJustReturn: false)
+    
+        let resultText = vaildate
+            .map { $0 ? "가입 가능한 나이입니다." : "만 17세 이상만 가입 가능합니다."}
+            .asDriver()
+    
+        return Output(
+            year: userDate.map({ $0.year }),
+            month: userDate.map({ $0.month }),
+            day: userDate.map({ $0.day }),
+            vaildate: vaildate,
+            vaildateText: resultText
+        )
     }
     
+    
+    private func checkForBirthDay(_ date: Date) -> Bool {
+        let current = calendar.dateComponents([.year, .month, .day], from: Date())
+        let user = calendar.dateComponents([.year, .month, .day], from: date)
+        
+        if current.year! - user.year! < 18 {
+            return false
+        } else if current.year! - user.year! == 18 {
+            if current.month! < user.month! {
+                return false
+            } else if current.month == user.month && current.day! < user.day! {
+                return false
+            }
+        }
+        return true
+    }
     
     private func proceccingForBirthDay(_ date: Date) -> Bool {
         
@@ -67,7 +91,6 @@ class BirthDayViewModel: ViewModelType {
             guard case let (userY?, userM?, userD?) = (
                 user.year,user.month, user.day
             ) else { return false }
-            
             
              // 2024 - 2008
             if year - userY < 18 {

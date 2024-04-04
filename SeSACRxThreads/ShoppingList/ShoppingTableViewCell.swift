@@ -48,14 +48,13 @@ class ShoppingTableViewCell: UITableViewCell {
             .distinctUntilChanged()
             .drive(checkButton.rx.isSelected)
             .disposed(by: disposeBag)
-        
+    
         output.starButtonState
             .asDriver()
             .distinctUntilChanged()
             .drive(starButton.rx.isSelected)
             .disposed(by: disposeBag)
-        
-        
+    
     }
     
 
