@@ -112,7 +112,7 @@ class ShoppingListViewController: UIViewController {
 }
 
 
-//1. 오늘의 회고록
+//1.  회고록
 /*
  // 뷰모델에선 직접 접근이 불가하여 OnNext로 하였었으나 효과가 없었음
  // 여기서 직접 접근해서 "" 를 주어도 효과는 또 없었음

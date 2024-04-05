@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         
 //        let nvc = UINavigationController(rootViewController: )
-        let rootViewController = UINavigationController(rootViewController: PhoneViewController() )
+        let rootViewController = UINavigationController(rootViewController: BoxOfficeViewController() )
         //  ShoppinListViewController()
         //  PasswordViewController()
          // OfCombineLatest() SignInViewController() // OfCombineLatest() // OfReplySubject ()

@@ -33,12 +33,7 @@ class TestViewController: UIViewController {
             guard let self else { return }
             self.textFiled.text = ""
         }
-        let uudi = UUID()
-        
-      
     }
-    
-    
 }
 
 
