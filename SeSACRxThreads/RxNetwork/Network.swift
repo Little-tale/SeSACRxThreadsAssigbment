@@ -88,10 +88,10 @@ class BoxOfficeNetwork: BoxOfficeNetworkType {
                     observable.onError(APIError.failDecode)
                     return
                 }
-            }
+            }.resume()
             // 1.3 까먹지 말고 디스포서블 반환
             return Disposables.create()
-        }
+        }.debug().debug("API: State\n")
         
     }
     

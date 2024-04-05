@@ -20,4 +20,16 @@ struct BoxOfficeResult: Decodable {
 // MARK: - DailyBoxOfficeList
 struct DailyBoxOfficeList: Decodable {
     let movieNm, openDt: String
+    
+    
+    enum CodingKeys: CodingKey {
+        case movieNm
+        case openDt
+    }
+    
+    init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.movieNm = try container.decode(String.self, forKey: .movieNm)
+        self.openDt = try container.decode(String.self, forKey: .openDt)
+    }
 }
