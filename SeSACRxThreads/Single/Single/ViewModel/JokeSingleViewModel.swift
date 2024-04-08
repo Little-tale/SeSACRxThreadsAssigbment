@@ -31,6 +31,20 @@ class JokeSingleViewModel: ViewModelType {
         let dataItems = JokeStorage.shared.read()
             .asDriver(onErrorJustReturn: [])
     
+        // network Area
+        input
+            .addButtonTab
+            .debounce(.milliseconds(200), scheduler: MainScheduler.instance)
+            .debug()
+            .bind(with: self) { owner, _ in
+                let result = Network.shared.requestJoke()
+                result.bind { joke in
+                    JokeStorage.shared.insert(joke)
+                }.disposed(by: owner.disposeBag)
+            }.disposed(by: disposeBag)
+        
+            
+    
         
         return .init(
             dataItems: dataItems

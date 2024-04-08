@@ -25,16 +25,18 @@ final class JokeStorage: JokeStorageType {
     private init() {}
     
     var jokes: [Joke] = []
+    lazy var behiver =  BehaviorSubject<[Joke]> (value: jokes)
     
     @discardableResult
     func insert(_ data: Joke) -> RxSwift.Observable<Joke> {
         jokes.append(data)
+        behiver.onNext(jokes)
         return Observable.just(data)
     }
     
     @discardableResult
     func read() -> RxSwift.Observable<[Joke]> {
-        return Observable.just(jokes)
+        return behiver
     }
     
 }
