@@ -30,7 +30,8 @@ class JokeSingleViewModel: ViewModelType {
         
         let dataItems = JokeStorage.shared.read()
             .asDriver(onErrorJustReturn: [])
-    
+
+        
         // network Area
         input
             .addButtonTab

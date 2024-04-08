@@ -74,7 +74,12 @@ final class JokeSingleViewController: UIViewController {
             }
             .disposed(by: disposeBag)
 
-    } 
+        output.dataItems
+            .drive(with: self) { owner, jokes in
+                owner.jokeCountLabel.text = "\(jokes.count) 개"
+            }
+            .disposed(by: disposeBag)
+    }
     
     func configure() {
         view.backgroundColor = .white
