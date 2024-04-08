@@ -34,33 +34,33 @@ class JokeSingleViewModel: ViewModelType {
         let behiverRe = BehaviorRelay(value: "")
         
         // network Area
-        input
-            .addButtonTab
-            .debounce(.milliseconds(100),
-                      scheduler: MainScheduler.instance)
-            .debug()
-            .withUnretained(self)
-            .map { owner in
-                // 옵저버 리서츠 방법
+        // Observable<Single<Joke>>
+        let buttonTap = input.addButtonTab
+            .debounce(.milliseconds(200), scheduler: MainScheduler.instance)
+            .flatMap {
                 Network.shared.requestResultJoke()
-                    .bind { result in
-                        switch result {
-                        case .success(let success):
-                            JokeStorage.shared.insert(success)
-                        case .failure(let failure):
-                            print(failure)
-                        }
-                    }
-                    .disposed(by: owner.0.disposeBag)
+                
             }
-            .subscribe { void in
-                print("이렇게 하면 상위 구독이 의미가 없어짐")
-            } onError: { error in
-                print(error)
+        
+        let success = buttonTap
+            .map { result in
+            guard case .success(let value) = result else {
+                return
             }
-            .disposed(by: disposeBag)
-
-            
+            JokeStorage.shared.insert(value)
+        }
+            .filter { $0 != nil }
+            .map { $0! }
+        
+        let error = buttonTap
+            .map { result in
+                guard case .failure(let fail) = result else {
+                    
+                    return
+                }
+                print(fail)
+            }
+        
     
             
         
@@ -110,5 +110,35 @@ class JokeSingleViewModel: ViewModelType {
  .bind { joke in
      JokeStorage.shared.insert(joke)
  }
+ 
+ */
+
+/*
+ Observable Result 방법
+ input
+     .addButtonTab
+     .debounce(.milliseconds(100),
+               scheduler: MainScheduler.instance)
+     .debug()
+     .withUnretained(self)
+     .map { owner in
+         // 옵저버 리서츠 방법
+         Network.shared.requestResultJoke()
+             .bind { result in
+                 switch result {
+                 case .success(let success):
+                     JokeStorage.shared.insert(success)
+                 case .failure(let failure):
+                     print(failure)
+                 }
+             }
+             .disposed(by: owner.0.disposeBag)
+     }
+     .subscribe { void in
+         print("이렇게 하면 상위 구독이 의미가 없어짐")
+     } onError: { error in
+         print(error)
+     }
+     .disposed(by: disposeBag)
  
  */
