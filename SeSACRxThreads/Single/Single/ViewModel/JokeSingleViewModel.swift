@@ -39,14 +39,29 @@ class JokeSingleViewModel: ViewModelType {
             .debounce(.milliseconds(100),
                       scheduler: MainScheduler.instance)
             .debug()
-            .flatMap {
-                Network.shared.requestJoke()
-                    .catchAndReturn(Joke(error: true, category: "", type: "", joke: "HI", id: 0, safe: true, lang: ""))
+            .withUnretained(self)
+            .map { owner in
+                // 옵저버 리서츠 방법
+                Network.shared.requestResultJoke()
+                    .bind { result in
+                        switch result {
+                        case .success(let success):
+                            JokeStorage.shared.insert(success)
+                        case .failure(let failure):
+                            print(failure)
+                        }
+                    }
+                    .disposed(by: owner.0.disposeBag)
             }
-            .bind { joke in
-                JokeStorage.shared.insert(joke)
+            .subscribe { void in
+                print("이렇게 하면 상위 구독이 의미가 없어짐")
+            } onError: { error in
+                print(error)
             }
             .disposed(by: disposeBag)
+
+            
+    
             
         
         dataItems
@@ -81,4 +96,19 @@ class JokeSingleViewModel: ViewModelType {
          JokeStorage.shared.insert(joke)
      }.disposed(by: owner.disposeBag)
  }.disposed(by: disposeBag)
+ */
+
+/*
+ 
+ .debounce(.milliseconds(100),
+           scheduler: MainScheduler.instance)
+ .debug()
+ .flatMap {
+     Network.shared.requestJoke()
+         .catchAndReturn(Joke(error: true, category: "", type: "", joke: "HI", id: 0, safe: true, lang: ""))
+ }
+ .bind { joke in
+     JokeStorage.shared.insert(joke)
+ }
+ 
  */
