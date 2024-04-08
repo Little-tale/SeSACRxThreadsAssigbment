@@ -36,15 +36,18 @@ class JokeSingleViewModel: ViewModelType {
         // network Area
         input
             .addButtonTab
-            .debounce(.milliseconds(200),
+            .debounce(.milliseconds(100),
                       scheduler: MainScheduler.instance)
             .debug()
-            .bind(with: self) { owner, _ in
-                let result = Network.shared.requestJoke()
-                result.subscribe { joke in // 바인드로 할시 에러
-                    JokeStorage.shared.insert(joke)
-                }.disposed(by: owner.disposeBag)
-            }.disposed(by: disposeBag)
+            .flatMap {
+                Network.shared.requestJoke()
+                    .catchAndReturn(Joke(error: true, category: "", type: "", joke: "HI", id: 0, safe: true, lang: ""))
+            }
+            .bind { joke in
+                JokeStorage.shared.insert(joke)
+            }
+            .disposed(by: disposeBag)
+            
         
         dataItems
             .drive(with: self) { _, datas in
@@ -67,4 +70,15 @@ class JokeSingleViewModel: ViewModelType {
  result.bind { joke in // 바인드로 할시 에러
      JokeStorage.shared.insert(joke)
  }.disposed(by: owner.disposeBag)
+ */
+
+
+
+/*
+ .bind(with: self) { owner, _ in
+     let result = Network.shared.requestJoke()
+     result.subscribe { joke in // 바인드로 할시 에러
+         JokeStorage.shared.insert(joke)
+     }.disposed(by: owner.disposeBag)
+ }.disposed(by: disposeBag)
  */
