@@ -44,7 +44,7 @@ class ShoppingViewModel: ViewModelType {
         ),
     ]
     
-    let disposeBag: DisposeBag
+    var disposeBag: DisposeBag
     
     lazy var dummyData = BehaviorSubject(value: data)
     

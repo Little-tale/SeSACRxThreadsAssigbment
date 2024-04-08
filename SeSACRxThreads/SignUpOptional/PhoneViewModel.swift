@@ -16,10 +16,10 @@ class PhoneViewModel: ViewModelType {
         let phoneTextField: ControlProperty<String?>
         let nextButton: ControlEvent<Void>
     }
-    let disposedBag: DisposeBag
+    let disposeBag: DisposeBag
     
     init(_ disposedBag: DisposeBag) {
-        self.disposedBag = disposedBag
+        self.disposeBag = disposedBag
     }
     
     struct Output {

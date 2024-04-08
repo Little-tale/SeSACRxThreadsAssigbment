@@ -34,6 +34,8 @@
 		7B11DC2B2BC379800055D423 /* JokeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B11DC252BC379800055D423 /* JokeTableViewCell.swift */; };
 		7B11DC2C2BC379800055D423 /* JokeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B11DC262BC379800055D423 /* JokeViewController.swift */; };
 		7B11DC2F2BC37B1E0055D423 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7B11DC2E2BC37B1E0055D423 /* Alamofire */; };
+		7B11DC412BC3C4F60055D423 /* JokeSingleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B11DC402BC3C4F60055D423 /* JokeSingleViewModel.swift */; };
+		7B11DC442BC3C6D00055D423 /* JokeStrage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B11DC432BC3C6D00055D423 /* JokeStrage.swift */; };
 		7B5E15222BBAAA72008065BE /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E151F2BBAAA72008065BE /* SearchTableViewCell.swift */; };
 		7B5E15232BBAAA72008065BE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E15202BBAAA72008065BE /* SearchViewController.swift */; };
 		7B5E15252BBAAAAB008065BE /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E15242BBAAAAB008065BE /* SearchViewModel.swift */; };
@@ -109,6 +111,8 @@
 		7B11DC242BC379800055D423 /* JokeSingleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokeSingleViewController.swift; sourceTree = "<group>"; };
 		7B11DC252BC379800055D423 /* JokeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokeTableViewCell.swift; sourceTree = "<group>"; };
 		7B11DC262BC379800055D423 /* JokeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokeViewController.swift; sourceTree = "<group>"; };
+		7B11DC402BC3C4F60055D423 /* JokeSingleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeSingleViewModel.swift; sourceTree = "<group>"; };
+		7B11DC432BC3C6D00055D423 /* JokeStrage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeStrage.swift; sourceTree = "<group>"; };
 		7B5E151F2BBAAA72008065BE /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		7B5E15202BBAAA72008065BE /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		7B5E15242BBAAAAB008065BE /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
@@ -283,6 +287,8 @@
 		7B11DC272BC379800055D423 /* Single */ = {
 			isa = PBXGroup;
 			children = (
+				7B11DC422BC3C6C50055D423 /* DataBase */,
+				7B11DC3F2BC3C4DD0055D423 /* ViewModel */,
 				7B11DC222BC379800055D423 /* Joke.swift */,
 				7B11DC232BC379800055D423 /* JokeNetwork.swift */,
 				7B11DC242BC379800055D423 /* JokeSingleViewController.swift */,
@@ -290,6 +296,22 @@
 				7B11DC262BC379800055D423 /* JokeViewController.swift */,
 			);
 			path = Single;
+			sourceTree = "<group>";
+		};
+		7B11DC3F2BC3C4DD0055D423 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7B11DC402BC3C4F60055D423 /* JokeSingleViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7B11DC422BC3C6C50055D423 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				7B11DC432BC3C6D00055D423 /* JokeStrage.swift */,
+			);
+			path = DataBase;
 			sourceTree = "<group>";
 		};
 		7B5E151E2BBAAA2B008065BE /* SearchView */ = {
@@ -551,6 +573,8 @@
 				7BF2E7EC2BB6D9D200E83EC1 /* SampleViewController.swift in Sources */,
 				7B11DC2C2BC379800055D423 /* JokeViewController.swift in Sources */,
 				0412806A2AEFA91E00972552 /* SignUpViewController.swift in Sources */,
+				7B11DC442BC3C6D00055D423 /* JokeStrage.swift in Sources */,
+				7B11DC412BC3C4F60055D423 /* JokeSingleViewModel.swift in Sources */,
 				7B11DC2A2BC379800055D423 /* JokeSingleViewController.swift in Sources */,
 				7B5E15252BBAAAAB008065BE /* SearchViewModel.swift in Sources */,
 				7B5E152F2BBAF41E008065BE /* ShoppingListViewController.swift in Sources */,

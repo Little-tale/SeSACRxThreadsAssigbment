@@ -7,17 +7,19 @@
 
 import Foundation
 
-class SignInViewModel: ViewModelType {
-    
-    struct Input {
-        
-    }
-    struct Output {
-        
-    }
-    
-    func proceccing(_ input: Input) -> Output {
-        return Output()
-    }
-    
-}
+
+//class SignInViewModel: ViewModelType {
+//    var disposeBag: RxSwift.DisposeBag
+//    
+//    struct Input {
+//        
+//    }
+//    struct Output {
+//        
+//    }
+//    
+//    func proceccing(_ input: Input) -> Output {
+//        return Output()
+//    }
+//    
+//}

@@ -11,6 +11,9 @@ import RxCocoa
 
 class SearchViewModel: ViewModelType {
     
+    let disposeBag: RxSwift.DisposeBag
+    
+    
     var data = ["A", "B", "C", "AB", "D", "ABC", "BBB", "EC", "SA", "AAAB", "ED", "F", "G", "H"]
     
     lazy var dataList = BehaviorSubject(value: data )
@@ -26,8 +29,6 @@ class SearchViewModel: ViewModelType {
         let searchTextEvent: ControlEvent<Void>
         
     }
-    
-    let disPoseBag: DisposeBag
     struct Output {
         // 셀을 그릴수있게 유도해야됨
         let validCellData: Observable<[String]>
@@ -35,7 +36,7 @@ class SearchViewModel: ViewModelType {
     }
     
     init(_ disposeBag: DisposeBag){
-        self.disPoseBag = disposeBag
+        self.disposeBag = disposeBag
         
     }
     
@@ -48,7 +49,7 @@ class SearchViewModel: ViewModelType {
             owner.dataList.onNext(owner.data)
             print(owner.dataList)
             
-        }.disposed(by: disPoseBag)
+        }.disposed(by: disposeBag)
         
         // MARK: 물어보기
         // 필터 로직
@@ -66,7 +67,7 @@ class SearchViewModel: ViewModelType {
             owner.dataList.onNext(result)
                 
             print(result)
-        }.disposed(by: disPoseBag)
+        }.disposed(by: disposeBag)
         
         let data = dataList
         return Output(validCellData: data)

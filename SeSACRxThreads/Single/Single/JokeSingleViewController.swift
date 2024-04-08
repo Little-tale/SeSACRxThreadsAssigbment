@@ -10,7 +10,10 @@ import RxSwift
 import RxCocoa
 import SnapKit
 
-class JokeSingleViewController: UIViewController {
+/*
+ 뷰모델로 옮기면서 작업합니다.
+ */
+final class JokeSingleViewController: UIViewController {
     
     let addJokeButton: UIButton = {
        let button = UIButton()
@@ -32,16 +35,17 @@ class JokeSingleViewController: UIViewController {
         return tv
     }()
     
-    let bag = DisposeBag()
-    
     let jokeCountLabel: UILabel = {
         let label = UILabel()
         label.textColor = .red
         return label
     }()
     
-    var jokes: [Joke] = []
-    lazy var jokesSubject = BehaviorSubject<[Joke]>(value: jokes)
+    let disposeBag = DisposeBag()
+    
+    let viewModel = JokeSingleViewModel()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +55,7 @@ class JokeSingleViewController: UIViewController {
     }
     
     func bindRx() {
-
+        
     } 
     
     func configure() {

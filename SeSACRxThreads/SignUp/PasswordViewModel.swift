@@ -14,6 +14,7 @@ protocol ViewModelType {
     associatedtype Input
     associatedtype Output
     
+    
     func proceccing(_ input: Input) -> Output
     
 }

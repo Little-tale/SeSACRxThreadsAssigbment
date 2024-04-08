@@ -10,6 +10,8 @@ import RxSwift
 import RxCocoa
 
 class SignUpViewModel: ViewModelType {
+    var disposeBag: RxSwift.DisposeBag = .init()
+    
     
     private let cantWords = ["덴","브렌","휴","젝"]
 
