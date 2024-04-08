@@ -40,7 +40,7 @@ final class Network: NeworkService {
             switch self {
                 
             case .joke:
-                URL(string: "https://v2.jokeapi.dev/joke/Programming?type=single")!
+                URL(string: "https://v2.jokeapi.dev/jokEE/Programming?type=single")!
             }
         }
     }
@@ -59,7 +59,7 @@ final class Network: NeworkService {
                 case .success(let joke) :
                     observable.onNext(joke)
                     observable.onCompleted()
-                case .failure(let failer) :
+                case .failure :
                     observable.onError(APIError.invalidURL)
                 }
             }
@@ -78,7 +78,7 @@ final class Network: NeworkService {
                 switch response.result {
                 case .success(let joke) :
                     observable(.success(joke))
-                case .failure(let failer) :
+                case .failure :
                     observable(.failure(APIError.unknownResponse))
                 }
             }
@@ -102,7 +102,7 @@ final class Network: NeworkService {
                     // observable.onNext(joke)
                     observable.onNext(.success(joke))
                     observable.onCompleted()
-                case .failure(let failer) :
+                case .failure :
                     // observable.onError(APIError.invalidURL)
                     observable.onNext(.failure(.failDecode))
                 }
@@ -126,7 +126,7 @@ final class Network: NeworkService {
                 case .success(let joke) :
                     // observable(.success(joke))
                     observable(.success(.success(joke)))
-                case .failure(let failer) :
+                case .failure :
                     // observable(.failure(APIError.unknownResponse))
                     observable(.success(.failure(.unknownResponse)))
                 }
