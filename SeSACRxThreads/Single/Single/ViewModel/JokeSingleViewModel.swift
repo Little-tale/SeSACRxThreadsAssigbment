@@ -34,24 +34,38 @@ class JokeSingleViewModel: ViewModelType {
         let behiverRe = BehaviorRelay(value: "")
         
         
-        let networkResult = input.addButtonTab
-            .debounce(.microseconds(200), scheduler: MainScheduler.instance)
-            .map { _ in
-                Network.shared.requsetResultSingleJoke()
+//        let networkResult = input.addButtonTab
+//            .debounce(.microseconds(200), scheduler: MainScheduler.instance)
+//            .map { _ in
+//                Network.shared.requsetResultSingleJoke()
+//                    .
+//            }
+        
+        // Share을 활용하는 방법
+        let networkResult = input
+            .addButtonTab
+            .debounce(.milliseconds(100), scheduler: MainScheduler.instance)
+            .flatMap {
+                Network.shared.requestResultJoke()
             }
-        
-        networkResult.bind(with: self) { owner, single in
-            single.subscribe { result in
-                switch result {
-                case .success(let value):
-                    JokeStorage.shared.insert(value)
-                case .failure(let fail):
-                    print(fail)
-                }
-            }.disposed(by: owner.disposeBag)
-        }.disposed(by: disposeBag)
-        
+            .share()
             
+        networkResult.subscribe(with: self) { owner, result in
+            guard case .success(let value) = result else {
+                return
+            }
+            JokeStorage.shared.insert(value)
+        }
+        .disposed(by: disposeBag)
+        
+        networkResult.subscribe { result in
+            guard case .failure(let error) = result else {
+                return
+            }
+            behiverRe.accept(error.localizedDescription)
+        }
+        .disposed(by: disposeBag)
+        
         
         dataItems
             .drive(with: self) { _, datas in

@@ -88,7 +88,7 @@ final class Network: NeworkService {
     
     // MARK: 3. Observable <Result<T>> 방식
     /// 해당 메서드는 상위 스트림의 구독을 해제 하지 않습니다. 에러 처리는 필수입니다.
-    func requestResultJoke() -> RxSwift.Observable<Result<Joke, APIError>> {
+    func requestResultJoke() -> Observable<Result<Joke, APIError>> {
         return Observable
             .create { [weak self] observable in
                 guard let self else {
