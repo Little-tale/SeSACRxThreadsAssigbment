@@ -20,6 +20,10 @@ protocol JokeStorageType {
 
 final class JokeStorage: JokeStorageType {
     
+    static let shared = JokeStorage()
+    
+    private init() {}
+    
     var jokes: [Joke] = []
     
     @discardableResult

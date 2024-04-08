@@ -55,7 +55,25 @@ final class JokeSingleViewController: UIViewController {
     }
     
     func bindRx() {
+        let inputAppear = rx.viewWillAppear
+        let buttonTap = addJokeButton.rx.tap
         
+        
+        let input = JokeSingleViewModel.Input(viewWillAppear: inputAppear, addButtonTab: buttonTap)
+        
+        let output = viewModel.proceccing(input)
+        
+        // TableView
+        output.dataItems
+            .drive(tableView.rx.items(
+                cellIdentifier: JokeTableViewCell.identifier,
+                cellType: JokeTableViewCell.self
+            )) {
+                row, value, cell in
+                cell.jokeLabel.text = value.joke
+            }
+            .disposed(by: disposeBag)
+
     } 
     
     func configure() {
@@ -81,3 +99,6 @@ final class JokeSingleViewController: UIViewController {
         }
     }
 }
+
+
+

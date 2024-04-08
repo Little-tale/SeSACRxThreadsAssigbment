@@ -36,6 +36,7 @@
 		7B11DC2F2BC37B1E0055D423 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7B11DC2E2BC37B1E0055D423 /* Alamofire */; };
 		7B11DC412BC3C4F60055D423 /* JokeSingleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B11DC402BC3C4F60055D423 /* JokeSingleViewModel.swift */; };
 		7B11DC442BC3C6D00055D423 /* JokeStrage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B11DC432BC3C6D00055D423 /* JokeStrage.swift */; };
+		7B11DC462BC3C9830055D423 /* Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B11DC452BC3C9830055D423 /* Extention.swift */; };
 		7B5E15222BBAAA72008065BE /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E151F2BBAAA72008065BE /* SearchTableViewCell.swift */; };
 		7B5E15232BBAAA72008065BE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E15202BBAAA72008065BE /* SearchViewController.swift */; };
 		7B5E15252BBAAAAB008065BE /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E15242BBAAAAB008065BE /* SearchViewModel.swift */; };
@@ -113,6 +114,7 @@
 		7B11DC262BC379800055D423 /* JokeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokeViewController.swift; sourceTree = "<group>"; };
 		7B11DC402BC3C4F60055D423 /* JokeSingleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeSingleViewModel.swift; sourceTree = "<group>"; };
 		7B11DC432BC3C6D00055D423 /* JokeStrage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeStrage.swift; sourceTree = "<group>"; };
+		7B11DC452BC3C9830055D423 /* Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extention.swift; sourceTree = "<group>"; };
 		7B5E151F2BBAAA72008065BE /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		7B5E15202BBAAA72008065BE /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		7B5E15242BBAAAAB008065BE /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				0412802E2AEF9BAC00972552 /* LaunchScreen.storyboard */,
 				041280312AEF9BAC00972552 /* Info.plist */,
 				041280772AF1D14000972552 /* Resource.swift */,
+				7B11DC452BC3C9830055D423 /* Extention.swift */,
 			);
 			path = SeSACRxThreads;
 			sourceTree = "<group>";
@@ -569,6 +572,7 @@
 				7BF2E7DD2BB5692700E83EC1 /* OfCombineLatest.swift in Sources */,
 				7BD3A2C52BBFC6D300FB7FB5 /* Network.swift in Sources */,
 				7B5E15462BBD83C3008065BE /* TestViewController .swift in Sources */,
+				7B11DC462BC3C9830055D423 /* Extention.swift in Sources */,
 				7B5E15232BBAAA72008065BE /* SearchViewController.swift in Sources */,
 				7BF2E7EC2BB6D9D200E83EC1 /* SampleViewController.swift in Sources */,
 				7B11DC2C2BC379800055D423 /* JokeViewController.swift in Sources */,
