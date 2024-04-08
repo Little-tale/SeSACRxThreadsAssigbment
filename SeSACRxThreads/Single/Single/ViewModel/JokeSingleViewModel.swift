@@ -33,35 +33,24 @@ class JokeSingleViewModel: ViewModelType {
             .asDriver(onErrorJustReturn: [])
         let behiverRe = BehaviorRelay(value: "")
         
-        // network Area
-        // Observable<Single<Joke>>
-        let buttonTap = input.addButtonTab
-            .debounce(.milliseconds(200), scheduler: MainScheduler.instance)
-            .flatMap {
-                Network.shared.requestResultJoke()
-                
+        
+        let networkResult = input.addButtonTab
+            .debounce(.microseconds(200), scheduler: MainScheduler.instance)
+            .map { _ in
+                Network.shared.requsetResultSingleJoke()
             }
         
-        let success = buttonTap
-            .map { result in
-            guard case .success(let value) = result else {
-                return
-            }
-            JokeStorage.shared.insert(value)
-        }
-            .filter { $0 != nil }
-            .map { $0! }
-        
-        let error = buttonTap
-            .map { result in
-                guard case .failure(let fail) = result else {
-                    
-                    return
+        networkResult.bind(with: self) { owner, single in
+            single.subscribe { result in
+                switch result {
+                case .success(let value):
+                    JokeStorage.shared.insert(value)
+                case .failure(let fail):
+                    print(fail)
                 }
-                print(fail)
-            }
+            }.disposed(by: owner.disposeBag)
+        }.disposed(by: disposeBag)
         
-    
             
         
         dataItems
@@ -141,4 +130,34 @@ class JokeSingleViewModel: ViewModelType {
      }
      .disposed(by: disposeBag)
  
+ */
+
+/*
+ // network Area
+ // Observable<Single<Joke>>
+ let buttonTap = input.addButtonTab
+     .debounce(.milliseconds(200), scheduler: MainScheduler.instance)
+     .flatMap {
+         Network.shared.requestResultJoke()
+         
+     }
+ 
+ let success = buttonTap
+     .map { result in
+     guard case .success(let value) = result else {
+         return
+     }
+     JokeStorage.shared.insert(value)
+ }
+     .filter { $0 != nil }
+     .map { $0! }
+ 
+ let error = buttonTap
+     .map { result in
+         guard case .failure(let fail) = result else {
+             
+             return
+         }
+         print(fail)
+     }
  */
