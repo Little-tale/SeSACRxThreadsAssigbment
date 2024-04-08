@@ -92,6 +92,7 @@ class BoxOfficeViewController: UIViewController {
             make.bottom.equalToSuperview()
         }
         collectionView.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: MovieCollectionViewCell.identifier)
+        
         collectionView.backgroundColor = .red
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)

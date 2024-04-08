@@ -26,12 +26,8 @@ class BoxOfficeViewModel {
         let recentList: BehaviorRelay<[String]>
         let movieList: BehaviorRelay<[DailyBoxOfficeList]>
     }
-    
-    /*
-     let recent = Observable.just(["테스트", "테스트1", "테스트2"])
-     
-     let movie = Observable.just(["테스트10", "테스트11", "테스트12"])
-     */
+
+
     func transform(input: Input) -> Output {
         let recent = BehaviorRelay<[String]> (value: [])
         let movieList = BehaviorRelay<[DailyBoxOfficeList]> (value: [])
@@ -58,6 +54,7 @@ class BoxOfficeViewModel {
             }
             .filter { $0.count == 8 }
             .catchAndReturn("20170130")
+            .distinctUntilChanged()
             .flatMap { BoxOfficeNetwork.fetchBoxOfficeData(date: $0)}
             .catchAndReturn(.init(boxOfficeResult: .init(boxofficeType: "", showRange: "", dailyBoxOfficeList: [])))
             .map { $0.boxOfficeResult.dailyBoxOfficeList }

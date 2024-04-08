@@ -7,32 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AA77C7C7-13E0-48F6-A306-FC53CC2CD18F"
+            uuid = "46AE7E3A-572E-4DAC-8DCF-9514FE12EF7C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SeSACRxThreads/RxNetwork/RecentStorage.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "createRecent(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D139B064-BD82-4A06-B1A1-43D449544676"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SeSACRxThreads/RxNetwork/RecentStorage.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "createRecent(_:)"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "loadRecentList()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
