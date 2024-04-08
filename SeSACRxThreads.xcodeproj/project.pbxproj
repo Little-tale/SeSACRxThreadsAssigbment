@@ -28,6 +28,12 @@
 		041280712AEFAD3D00972552 /* PhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041280702AEFAD3D00972552 /* PhoneViewController.swift */; };
 		041280732AEFAD4B00972552 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041280722AEFAD4B00972552 /* NicknameViewController.swift */; };
 		041280782AF1D14000972552 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041280772AF1D14000972552 /* Resource.swift */; };
+		7B11DC282BC379800055D423 /* Joke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B11DC222BC379800055D423 /* Joke.swift */; };
+		7B11DC292BC379800055D423 /* JokeNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B11DC232BC379800055D423 /* JokeNetwork.swift */; };
+		7B11DC2A2BC379800055D423 /* JokeSingleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B11DC242BC379800055D423 /* JokeSingleViewController.swift */; };
+		7B11DC2B2BC379800055D423 /* JokeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B11DC252BC379800055D423 /* JokeTableViewCell.swift */; };
+		7B11DC2C2BC379800055D423 /* JokeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B11DC262BC379800055D423 /* JokeViewController.swift */; };
+		7B11DC2F2BC37B1E0055D423 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7B11DC2E2BC37B1E0055D423 /* Alamofire */; };
 		7B5E15222BBAAA72008065BE /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E151F2BBAAA72008065BE /* SearchTableViewCell.swift */; };
 		7B5E15232BBAAA72008065BE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E15202BBAAA72008065BE /* SearchViewController.swift */; };
 		7B5E15252BBAAAAB008065BE /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E15242BBAAAAB008065BE /* SearchViewModel.swift */; };
@@ -98,6 +104,11 @@
 		041280702AEFAD3D00972552 /* PhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewController.swift; sourceTree = "<group>"; };
 		041280722AEFAD4B00972552 /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
 		041280772AF1D14000972552 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		7B11DC222BC379800055D423 /* Joke.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Joke.swift; sourceTree = "<group>"; };
+		7B11DC232BC379800055D423 /* JokeNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokeNetwork.swift; sourceTree = "<group>"; };
+		7B11DC242BC379800055D423 /* JokeSingleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokeSingleViewController.swift; sourceTree = "<group>"; };
+		7B11DC252BC379800055D423 /* JokeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokeTableViewCell.swift; sourceTree = "<group>"; };
+		7B11DC262BC379800055D423 /* JokeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokeViewController.swift; sourceTree = "<group>"; };
 		7B5E151F2BBAAA72008065BE /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		7B5E15202BBAAA72008065BE /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		7B5E15242BBAAAAB008065BE /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
@@ -134,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				041280602AEFA0AC00972552 /* SnapKit in Frameworks */,
+				7B11DC2F2BC37B1E0055D423 /* Alamofire in Frameworks */,
 				0412805D2AEFA09E00972552 /* RxSwift in Frameworks */,
 				0412805B2AEFA09E00972552 /* RxCocoa in Frameworks */,
 			);
@@ -179,6 +191,7 @@
 		041280222AEF9BAB00972552 /* SeSACRxThreads */ = {
 			isa = PBXGroup;
 			children = (
+				7B11DC202BC3795A0055D423 /* Single */,
 				7BD3A2BA2BBFC6BE00FB7FB5 /* RxNetwork */,
 				7B5E15442BBD83B5008065BE /* Test */,
 				7B5E152D2BBAF40A008065BE /* ShoppingList */,
@@ -257,6 +270,26 @@
 				7BF2E7E82BB6BB3900E83EC1 /* BirthDayViewModel.swift */,
 			);
 			path = SignUpOptional;
+			sourceTree = "<group>";
+		};
+		7B11DC202BC3795A0055D423 /* Single */ = {
+			isa = PBXGroup;
+			children = (
+				7B11DC272BC379800055D423 /* Single */,
+			);
+			path = Single;
+			sourceTree = "<group>";
+		};
+		7B11DC272BC379800055D423 /* Single */ = {
+			isa = PBXGroup;
+			children = (
+				7B11DC222BC379800055D423 /* Joke.swift */,
+				7B11DC232BC379800055D423 /* JokeNetwork.swift */,
+				7B11DC242BC379800055D423 /* JokeSingleViewController.swift */,
+				7B11DC252BC379800055D423 /* JokeTableViewCell.swift */,
+				7B11DC262BC379800055D423 /* JokeViewController.swift */,
+			);
+			path = Single;
 			sourceTree = "<group>";
 		};
 		7B5E151E2BBAAA2B008065BE /* SearchView */ = {
@@ -360,6 +393,7 @@
 				0412805A2AEFA09E00972552 /* RxCocoa */,
 				0412805C2AEFA09E00972552 /* RxSwift */,
 				0412805F2AEFA0AC00972552 /* SnapKit */,
+				7B11DC2E2BC37B1E0055D423 /* Alamofire */,
 			);
 			productName = SeSACRxThreads;
 			productReference = 041280202AEF9BAB00972552 /* SeSACRxThreads.app */;
@@ -436,6 +470,7 @@
 			packageReferences = (
 				041280592AEFA09D00972552 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				0412805E2AEFA0AC00972552 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				7B11DC2D2BC37B1E0055D423 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 041280212AEF9BAB00972552 /* Products */;
 			projectDirPath = "";
@@ -497,12 +532,15 @@
 				041280282AEF9BAB00972552 /* ViewController.swift in Sources */,
 				7BF2E7E52BB5921500E83EC1 /* PhoneViewModel.swift in Sources */,
 				041280632AEFA0CE00972552 /* PointButton.swift in Sources */,
+				7B11DC292BC379800055D423 /* JokeNetwork.swift in Sources */,
 				7B5E15372BBAFACE008065BE /* CustomButton.swift in Sources */,
 				7BF2E7EF2BB76BC400E83EC1 /* SampleViewModel.swift in Sources */,
+				7B11DC282BC379800055D423 /* Joke.swift in Sources */,
 				7B5E15332BBAF92A008065BE /* ShoppingViewModel.swift in Sources */,
 				7BD3A2C42BBFC6D300FB7FB5 /* BoxOfficeViewController.swift in Sources */,
 				041280242AEF9BAB00972552 /* AppDelegate.swift in Sources */,
 				7BD3A2C62BBFC6D300FB7FB5 /* ShareViewController.swift in Sources */,
+				7B11DC2B2BC379800055D423 /* JokeTableViewCell.swift in Sources */,
 				7B5E15412BBD35C5008065BE /* ShoppingDetailViewController.swift in Sources */,
 				7BF2E7E92BB6BB3900E83EC1 /* BirthDayViewModel.swift in Sources */,
 				041280732AEFAD4B00972552 /* NicknameViewController.swift in Sources */,
@@ -511,7 +549,9 @@
 				7B5E15462BBD83C3008065BE /* TestViewController .swift in Sources */,
 				7B5E15232BBAAA72008065BE /* SearchViewController.swift in Sources */,
 				7BF2E7EC2BB6D9D200E83EC1 /* SampleViewController.swift in Sources */,
+				7B11DC2C2BC379800055D423 /* JokeViewController.swift in Sources */,
 				0412806A2AEFA91E00972552 /* SignUpViewController.swift in Sources */,
+				7B11DC2A2BC379800055D423 /* JokeSingleViewController.swift in Sources */,
 				7B5E15252BBAAAAB008065BE /* SearchViewModel.swift in Sources */,
 				7B5E152F2BBAF41E008065BE /* ShoppingListViewController.swift in Sources */,
 				7B5E15312BBAF46D008065BE /* CustomSearchBar.swift in Sources */,
@@ -878,6 +918,14 @@
 				minimumVersion = 5.6.0;
 			};
 		};
+		7B11DC2D2BC37B1E0055D423 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -895,6 +943,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0412805E2AEFA0AC00972552 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		7B11DC2E2BC37B1E0055D423 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B11DC2D2BC37B1E0055D423 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
