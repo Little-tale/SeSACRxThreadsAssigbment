@@ -23,6 +23,7 @@ class JokeSingleViewModel: ViewModelType {
     
     struct Output {
         let dataItems: Driver<[Joke]>
+        let outputCount: BehaviorRelay<String>
     }
     
     
@@ -30,7 +31,7 @@ class JokeSingleViewModel: ViewModelType {
         
         let dataItems = JokeStorage.shared.read()
             .asDriver(onErrorJustReturn: [])
-
+        let behiverRe = BehaviorRelay(value: "")
         
         // network Area
         input
@@ -45,10 +46,14 @@ class JokeSingleViewModel: ViewModelType {
             }.disposed(by: disposeBag)
         
             
-    
+        dataItems
+            .drive(with: self) { _, datas in
+                behiverRe.accept("\(datas.count) 개")
+            }.disposed(by: disposeBag)
         
         return .init(
-            dataItems: dataItems
+            dataItems: dataItems,
+            outputCount: behiverRe
         )
     }
     
